@@ -10,14 +10,18 @@
 		5131D4182099B4FD00819589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5131D4172099B4FD00819589 /* Assets.xcassets */; };
 		5131D41B2099B4FD00819589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5131D4192099B4FD00819589 /* LaunchScreen.storyboard */; };
 		5131D4282099B4FD00819589 /* Fun_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4272099B4FD00819589 /* Fun_iOSTests.m */; };
-		5131D4422099B88400819589 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4382099B88300819589 /* main.m */; };
-		5131D4432099B88400819589 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4392099B88300819589 /* AppDelegate.m */; };
-		5131D4462099BB0000819589 /* JHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4452099BB0000819589 /* JHTabBarController.m */; };
-		5131D4492099BDEA00819589 /* JHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4482099BDEA00819589 /* JHNavigationController.m */; };
 		5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D44C2099BED700819589 /* JHHomeViewController.m */; };
-		5131D44F2099BFCF00819589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5131D44E2099BFCF00819589 /* Main.storyboard */; };
 		5131D4522099C00100819589 /* JHSeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4512099C00100819589 /* JHSeeViewController.m */; };
 		5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4542099C00D00819589 /* JHProfileViewController.m */; };
+		5131D459209AA52100819589 /* JHNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D458209AA52100819589 /* JHNewViewController.m */; };
+		5131D45C209AA54D00819589 /* JHRandomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D45B209AA54D00819589 /* JHRandomViewController.m */; };
+		5131D45F209AADD000819589 /* JHHomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D45E209AADD000819589 /* JHHomeTopView.m */; };
+		5131D46E209AB32400819589 /* JHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D463209AB32400819589 /* JHTabBarController.m */; };
+		5131D46F209AB32400819589 /* JHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D464209AB32400819589 /* JHNavigationController.m */; };
+		5131D470209AB32400819589 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5131D46B209AB32400819589 /* Main.storyboard */; };
+		5131D471209AB32400819589 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D46C209AB32400819589 /* main.m */; };
+		5131D472209AB32400819589 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D46D209AB32400819589 /* AppDelegate.m */; };
+		5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D474209AB3A300819589 /* UIView+JHExtension.m */; };
 		96F9BC0B4351DB9CF870D09A /* libPods-Fun_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */; };
 		AB1EA948E4A567F8E62DDEE6 /* libPods-Fun_iOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */; };
 /* End PBXBuildFile section */
@@ -42,22 +46,30 @@
 		5131D4232099B4FD00819589 /* Fun_iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Fun_iOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5131D4272099B4FD00819589 /* Fun_iOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Fun_iOSTests.m; sourceTree = "<group>"; };
 		5131D4292099B4FD00819589 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5131D4372099B88300819589 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		5131D4382099B88300819589 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5131D4392099B88300819589 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5131D4442099BB0000819589 /* JHTabBarController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHTabBarController.h; sourceTree = "<group>"; };
-		5131D4452099BB0000819589 /* JHTabBarController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHTabBarController.m; sourceTree = "<group>"; };
-		5131D4472099BDEA00819589 /* JHNavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNavigationController.h; sourceTree = "<group>"; };
-		5131D4482099BDEA00819589 /* JHNavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHNavigationController.m; sourceTree = "<group>"; };
-		5131D44A2099BE5F00819589 /* Macros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
 		5131D44B2099BED700819589 /* JHHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHHomeViewController.h; sourceTree = "<group>"; };
 		5131D44C2099BED700819589 /* JHHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHHomeViewController.m; sourceTree = "<group>"; };
-		5131D44E2099BFCF00819589 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5131D4502099C00100819589 /* JHSeeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHSeeViewController.h; sourceTree = "<group>"; };
 		5131D4512099C00100819589 /* JHSeeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHSeeViewController.m; sourceTree = "<group>"; };
 		5131D4532099C00D00819589 /* JHProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHProfileViewController.h; sourceTree = "<group>"; };
 		5131D4542099C00D00819589 /* JHProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHProfileViewController.m; sourceTree = "<group>"; };
 		5131D456209A9B7500819589 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		5131D457209AA52100819589 /* JHNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNewViewController.h; sourceTree = "<group>"; };
+		5131D458209AA52100819589 /* JHNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHNewViewController.m; sourceTree = "<group>"; };
+		5131D45A209AA54D00819589 /* JHRandomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHRandomViewController.h; sourceTree = "<group>"; };
+		5131D45B209AA54D00819589 /* JHRandomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHRandomViewController.m; sourceTree = "<group>"; };
+		5131D45D209AADD000819589 /* JHHomeTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHHomeTopView.h; sourceTree = "<group>"; };
+		5131D45E209AADD000819589 /* JHHomeTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHHomeTopView.m; sourceTree = "<group>"; };
+		5131D463209AB32400819589 /* JHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTabBarController.m; sourceTree = "<group>"; };
+		5131D464209AB32400819589 /* JHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHNavigationController.m; sourceTree = "<group>"; };
+		5131D465209AB32400819589 /* JHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTabBarController.h; sourceTree = "<group>"; };
+		5131D466209AB32400819589 /* JHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHNavigationController.h; sourceTree = "<group>"; };
+		5131D468209AB32400819589 /* Macros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Macros.h; sourceTree = "<group>"; };
+		5131D46A209AB32400819589 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5131D46B209AB32400819589 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5131D46C209AB32400819589 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5131D46D209AB32400819589 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		5131D473209AB3A300819589 /* UIView+JHExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JHExtension.h"; sourceTree = "<group>"; };
+		5131D474209AB3A300819589 /* UIView+JHExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHExtension.m"; sourceTree = "<group>"; };
 		601C4DA65ACDF02CA482A0BB /* Pods-Fun_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOS/Pods-Fun_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fun_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82037E229A873C33EB50AB51 /* Pods-Fun_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOSTests/Pods-Fun_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +163,10 @@
 			children = (
 				5131D44B2099BED700819589 /* JHHomeViewController.h */,
 				5131D44C2099BED700819589 /* JHHomeViewController.m */,
+				5131D457209AA52100819589 /* JHNewViewController.h */,
+				5131D458209AA52100819589 /* JHNewViewController.m */,
+				5131D45A209AA54D00819589 /* JHRandomViewController.h */,
+				5131D45B209AA54D00819589 /* JHRandomViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +181,8 @@
 		5131D4352099B88300819589 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5131D45D209AADD000819589 /* JHHomeTopView.h */,
+				5131D45E209AADD000819589 /* JHHomeTopView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,15 +190,10 @@
 		5131D4362099B88300819589 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				5131D4372099B88300819589 /* AppDelegate.h */,
-				5131D4392099B88300819589 /* AppDelegate.m */,
-				5131D4382099B88300819589 /* main.m */,
-				5131D44E2099BFCF00819589 /* Main.storyboard */,
-				5131D44A2099BE5F00819589 /* Macros.h */,
-				5131D4442099BB0000819589 /* JHTabBarController.h */,
-				5131D4452099BB0000819589 /* JHTabBarController.m */,
-				5131D4472099BDEA00819589 /* JHNavigationController.h */,
-				5131D4482099BDEA00819589 /* JHNavigationController.m */,
+				5131D462209AB32400819589 /* Base */,
+				5131D461209AB32400819589 /* Category */,
+				5131D469209AB32400819589 /* Main */,
+				5131D467209AB32400819589 /* Other */,
 				5131D456209A9B7500819589 /* PrefixHeader.pch */,
 			);
 			path = Main;
@@ -250,6 +263,45 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5131D461209AB32400819589 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				5131D473209AB3A300819589 /* UIView+JHExtension.h */,
+				5131D474209AB3A300819589 /* UIView+JHExtension.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		5131D462209AB32400819589 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5131D466209AB32400819589 /* JHNavigationController.h */,
+				5131D464209AB32400819589 /* JHNavigationController.m */,
+				5131D465209AB32400819589 /* JHTabBarController.h */,
+				5131D463209AB32400819589 /* JHTabBarController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		5131D467209AB32400819589 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5131D468209AB32400819589 /* Macros.h */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		5131D469209AB32400819589 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				5131D46A209AB32400819589 /* AppDelegate.h */,
+				5131D46D209AB32400819589 /* AppDelegate.m */,
+				5131D46C209AB32400819589 /* main.m */,
+				5131D46B209AB32400819589 /* Main.storyboard */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		D567556795B4874F5A175590 /* Pods */ = {
@@ -346,7 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5131D44F2099BFCF00819589 /* Main.storyboard in Resources */,
+				5131D470209AB32400819589 /* Main.storyboard in Resources */,
 				5131D41B2099B4FD00819589 /* LaunchScreen.storyboard in Resources */,
 				5131D4182099B4FD00819589 /* Assets.xcassets in Resources */,
 			);
@@ -406,12 +458,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				5131D4522099C00100819589 /* JHSeeViewController.m in Sources */,
+				5131D46F209AB32400819589 /* JHNavigationController.m in Sources */,
 				5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */,
-				5131D4432099B88400819589 /* AppDelegate.m in Sources */,
-				5131D4492099BDEA00819589 /* JHNavigationController.m in Sources */,
+				5131D45C209AA54D00819589 /* JHRandomViewController.m in Sources */,
+				5131D472209AB32400819589 /* AppDelegate.m in Sources */,
+				5131D459209AA52100819589 /* JHNewViewController.m in Sources */,
 				5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */,
-				5131D4462099BB0000819589 /* JHTabBarController.m in Sources */,
-				5131D4422099B88400819589 /* main.m in Sources */,
+				5131D45F209AADD000819589 /* JHHomeTopView.m in Sources */,
+				5131D471209AB32400819589 /* main.m in Sources */,
+				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
+				5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +620,10 @@
 				DEVELOPMENT_TEAM = T73WW3AT23;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Fun_iOS/Main/PrefixHeader.pch";
 				INFOPLIST_FILE = Fun_iOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr.QuAndLi.Fun-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -580,7 +639,10 @@
 				DEVELOPMENT_TEAM = T73WW3AT23;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Fun_iOS/Main/PrefixHeader.pch";
 				INFOPLIST_FILE = Fun_iOS/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr.QuAndLi.Fun-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -595,7 +657,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T73WW3AT23;
 				INFOPLIST_FILE = Fun_iOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr.QuAndLi.Fun-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -611,7 +677,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T73WW3AT23;
 				INFOPLIST_FILE = Fun_iOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr.QuAndLi.Fun-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
