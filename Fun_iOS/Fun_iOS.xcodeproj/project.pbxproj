@@ -13,8 +13,6 @@
 		5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D44C2099BED700819589 /* JHHomeViewController.m */; };
 		5131D4522099C00100819589 /* JHSeeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4512099C00100819589 /* JHSeeViewController.m */; };
 		5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4542099C00D00819589 /* JHProfileViewController.m */; };
-		5131D459209AA52100819589 /* JHNewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D458209AA52100819589 /* JHNewViewController.m */; };
-		5131D45C209AA54D00819589 /* JHRandomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D45B209AA54D00819589 /* JHRandomViewController.m */; };
 		5131D45F209AADD000819589 /* JHHomeTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D45E209AADD000819589 /* JHHomeTopView.m */; };
 		5131D46E209AB32400819589 /* JHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D463209AB32400819589 /* JHTabBarController.m */; };
 		5131D46F209AB32400819589 /* JHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D464209AB32400819589 /* JHNavigationController.m */; };
@@ -22,6 +20,13 @@
 		5131D471209AB32400819589 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D46C209AB32400819589 /* main.m */; };
 		5131D472209AB32400819589 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D46D209AB32400819589 /* AppDelegate.m */; };
 		5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D474209AB3A300819589 /* UIView+JHExtension.m */; };
+		51B51319209C30180086209F /* customLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51318209C30180086209F /* customLayout.m */; };
+		51B51323209C358E0086209F /* JHNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51321209C358E0086209F /* JHNewsCell.m */; };
+		51B51324209C358E0086209F /* JHNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B51322209C358E0086209F /* JHNewsCell.xib */; };
+		51B51328209C36060086209F /* JHVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51326209C36060086209F /* JHVideoCell.m */; };
+		51B51329209C36060086209F /* JHVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B51327209C36060086209F /* JHVideoCell.xib */; };
+		51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B5132B209C3F860086209F /* JHNewsViewController.m */; };
+		51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B5132E209C3F960086209F /* JHVideoViewController.m */; };
 		96F9BC0B4351DB9CF870D09A /* libPods-Fun_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */; };
 		AB1EA948E4A567F8E62DDEE6 /* libPods-Fun_iOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */; };
 /* End PBXBuildFile section */
@@ -53,10 +58,6 @@
 		5131D4532099C00D00819589 /* JHProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHProfileViewController.h; sourceTree = "<group>"; };
 		5131D4542099C00D00819589 /* JHProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHProfileViewController.m; sourceTree = "<group>"; };
 		5131D456209A9B7500819589 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
-		5131D457209AA52100819589 /* JHNewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNewViewController.h; sourceTree = "<group>"; };
-		5131D458209AA52100819589 /* JHNewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHNewViewController.m; sourceTree = "<group>"; };
-		5131D45A209AA54D00819589 /* JHRandomViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHRandomViewController.h; sourceTree = "<group>"; };
-		5131D45B209AA54D00819589 /* JHRandomViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHRandomViewController.m; sourceTree = "<group>"; };
 		5131D45D209AADD000819589 /* JHHomeTopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHHomeTopView.h; sourceTree = "<group>"; };
 		5131D45E209AADD000819589 /* JHHomeTopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHHomeTopView.m; sourceTree = "<group>"; };
 		5131D463209AB32400819589 /* JHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTabBarController.m; sourceTree = "<group>"; };
@@ -70,6 +71,18 @@
 		5131D46D209AB32400819589 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5131D473209AB3A300819589 /* UIView+JHExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JHExtension.h"; sourceTree = "<group>"; };
 		5131D474209AB3A300819589 /* UIView+JHExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHExtension.m"; sourceTree = "<group>"; };
+		51B51317209C30170086209F /* customLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customLayout.h; sourceTree = "<group>"; };
+		51B51318209C30180086209F /* customLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customLayout.m; sourceTree = "<group>"; };
+		51B51320209C358E0086209F /* JHNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNewsCell.h; sourceTree = "<group>"; };
+		51B51321209C358E0086209F /* JHNewsCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHNewsCell.m; sourceTree = "<group>"; };
+		51B51322209C358E0086209F /* JHNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHNewsCell.xib; sourceTree = "<group>"; };
+		51B51325209C36060086209F /* JHVideoCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoCell.h; sourceTree = "<group>"; };
+		51B51326209C36060086209F /* JHVideoCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoCell.m; sourceTree = "<group>"; };
+		51B51327209C36060086209F /* JHVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHVideoCell.xib; sourceTree = "<group>"; };
+		51B5132A209C3F860086209F /* JHNewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNewsViewController.h; sourceTree = "<group>"; };
+		51B5132B209C3F860086209F /* JHNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHNewsViewController.m; sourceTree = "<group>"; };
+		51B5132D209C3F960086209F /* JHVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoViewController.h; sourceTree = "<group>"; };
+		51B5132E209C3F960086209F /* JHVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoViewController.m; sourceTree = "<group>"; };
 		601C4DA65ACDF02CA482A0BB /* Pods-Fun_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOS/Pods-Fun_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fun_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82037E229A873C33EB50AB51 /* Pods-Fun_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOSTests/Pods-Fun_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -163,10 +176,10 @@
 			children = (
 				5131D44B2099BED700819589 /* JHHomeViewController.h */,
 				5131D44C2099BED700819589 /* JHHomeViewController.m */,
-				5131D457209AA52100819589 /* JHNewViewController.h */,
-				5131D458209AA52100819589 /* JHNewViewController.m */,
-				5131D45A209AA54D00819589 /* JHRandomViewController.h */,
-				5131D45B209AA54D00819589 /* JHRandomViewController.m */,
+				51B5132A209C3F860086209F /* JHNewsViewController.h */,
+				51B5132B209C3F860086209F /* JHNewsViewController.m */,
+				51B5132D209C3F960086209F /* JHVideoViewController.h */,
+				51B5132E209C3F960086209F /* JHVideoViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -183,6 +196,12 @@
 			children = (
 				5131D45D209AADD000819589 /* JHHomeTopView.h */,
 				5131D45E209AADD000819589 /* JHHomeTopView.m */,
+				51B51320209C358E0086209F /* JHNewsCell.h */,
+				51B51321209C358E0086209F /* JHNewsCell.m */,
+				51B51322209C358E0086209F /* JHNewsCell.xib */,
+				51B51325209C36060086209F /* JHVideoCell.h */,
+				51B51326209C36060086209F /* JHVideoCell.m */,
+				51B51327209C36060086209F /* JHVideoCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,6 +307,8 @@
 		5131D467209AB32400819589 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				51B51317209C30170086209F /* customLayout.h */,
+				51B51318209C30180086209F /* customLayout.m */,
 				5131D468209AB32400819589 /* Macros.h */,
 			);
 			path = Other;
@@ -400,7 +421,9 @@
 			files = (
 				5131D470209AB32400819589 /* Main.storyboard in Resources */,
 				5131D41B2099B4FD00819589 /* LaunchScreen.storyboard in Resources */,
+				51B51324209C358E0086209F /* JHNewsCell.xib in Resources */,
 				5131D4182099B4FD00819589 /* Assets.xcassets in Resources */,
+				51B51329209C36060086209F /* JHVideoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,15 +481,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				5131D4522099C00100819589 /* JHSeeViewController.m in Sources */,
+				51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */,
+				51B51328209C36060086209F /* JHVideoCell.m in Sources */,
 				5131D46F209AB32400819589 /* JHNavigationController.m in Sources */,
+				51B51319209C30180086209F /* customLayout.m in Sources */,
 				5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */,
-				5131D45C209AA54D00819589 /* JHRandomViewController.m in Sources */,
 				5131D472209AB32400819589 /* AppDelegate.m in Sources */,
-				5131D459209AA52100819589 /* JHNewViewController.m in Sources */,
 				5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */,
 				5131D45F209AADD000819589 /* JHHomeTopView.m in Sources */,
+				51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */,
 				5131D471209AB32400819589 /* main.m in Sources */,
 				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
+				51B51323209C358E0086209F /* JHNewsCell.m in Sources */,
 				5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -61,7 +61,7 @@
 }
 - (void)setupScrollView{
     
-    NSArray *vcName = @[@"JHNewViewController",@"JHRandomViewController"];
+    NSArray *vcName = @[@"JHNewsViewController",@"JHVideoViewController"];
     for (NSInteger i=0; i<vcName.count; i++) {
         NSString *vcNameStr = vcName[i];
         UIViewController *vc = [[NSClassFromString(vcNameStr)alloc]init];
