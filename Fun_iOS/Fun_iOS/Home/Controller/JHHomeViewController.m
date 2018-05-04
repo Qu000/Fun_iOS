@@ -53,7 +53,7 @@
 - (void)setupOthers{
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.titleView = self.topView;
-    self.navigationController.navigationBar.barTintColor = JHRGB(0,205,220);
+    self.navigationController.navigationBar.barTintColor = JHRGB(255,213,0);//0,205,220
 }
 - (void)setupUI{
     

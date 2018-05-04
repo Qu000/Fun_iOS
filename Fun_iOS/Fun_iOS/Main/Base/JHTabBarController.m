@@ -23,6 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    //设置tabBar的背景颜色，直接.backgroundcolor不对
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 49)];
+    backView.backgroundColor = JHRGB(255, 126, 5);
+    [self.tabBar insertSubview:backView atIndex:0];
+    self.tabBar.opaque = YES;
+    
     [self setupUI];
 }
 
@@ -42,16 +48,16 @@
     childVc.tabBarItem.title = tabTitle;
 //    childVc.title
     childVc.tabBarItem.image = [UIImage imageNamed:image];
-    
+
     //声明：这张图片按照原来的样子显示出来，不要自动渲染成其他颜色（比如蓝色）
     childVc.tabBarItem.selectedImage = [[UIImage imageNamed:selectedImage]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     //设置文字样式
     NSMutableDictionary *textAtts = [NSMutableDictionary dictionary];
-    textAtts[NSForegroundColorAttributeName] = JHRGB(123, 123, 123);
+    textAtts[NSForegroundColorAttributeName] = [UIColor whiteColor];//JHRGB(123, 123, 123)
     
     NSMutableDictionary *selectTextAtts = [NSMutableDictionary dictionary];
-    selectTextAtts[NSForegroundColorAttributeName] = [UIColor orangeColor];
+    selectTextAtts[NSForegroundColorAttributeName] = [UIColor blackColor];
     
     
     
