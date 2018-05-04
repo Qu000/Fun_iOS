@@ -8,6 +8,7 @@
 
 #import "JHVideoViewController.h"
 #import "JHVideoCell.h"
+#import "customLayout.h"
 
 @interface JHVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
@@ -27,23 +28,18 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 
 - (void)setupDefault{
     
-    CGFloat itemWidth = 100;
-    CGFloat itemHeight = 100;
-    UICollectionViewFlowLayout *shareflowLayout = [[UICollectionViewFlowLayout alloc] init];
-    shareflowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
-    shareflowLayout.itemSize =CGSizeMake(itemWidth, itemHeight);
+    customLayout *layout = [[customLayout alloc]initWithType:LayoutTypeLinear];
+    layout.itemSize = CGSizeMake(250, 250);
     
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:shareflowLayout];
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:layout];
     
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.showsVerticalScrollIndicator = NO;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JHVideoCell class]) bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+    collectionView.backgroundColor = [UIColor whiteColor];
     
     collectionView.delegate = self;
     collectionView.dataSource = self;
-//    collectionView.delaysContentTouches = NO;
-//    collectionView.scrollEnabled = YES;
-//    collectionView.showsHorizontalScrollIndicator = NO;
     [self.view addSubview:collectionView];
     
     self.collectionView = collectionView;
@@ -71,5 +67,34 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 
 #pragma mark <UICollectionViewDelegate>
 
+- (NSIndexPath *)curIndexPath {
+    NSArray *indexPaths = [self.collectionView indexPathsForVisibleItems];
+    NSIndexPath *curIndexPath = nil;
+    NSInteger curzIndex = 0;
+    for (NSIndexPath *path in indexPaths.objectEnumerator) {
+        UICollectionViewLayoutAttributes *attributes = [self.collectionView layoutAttributesForItemAtIndexPath:path];
+        if (!curIndexPath) {
+            curIndexPath = path;
+            curzIndex = attributes.zIndex;
+            continue;
+        }
+        if (attributes.zIndex > curzIndex) {
+            curIndexPath = path;
+            curzIndex = attributes.zIndex;
+        }
+    }
+    return curIndexPath;
+}
 
+
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *curIndexPath = [self curIndexPath];
+    if (indexPath.row == curIndexPath.row) {
+        return YES;
+    }
+    
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+    
+    return NO;
+}
 @end
