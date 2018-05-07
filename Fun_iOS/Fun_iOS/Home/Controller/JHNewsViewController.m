@@ -44,10 +44,39 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     
     [self setupCollectionDefault];
     
-    [self loadNewData];
+    [self refreshTop];
 
 }
 
+#pragma mark --- 下拉刷新
+- (void)refreshTop{
+    
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    
+    // 设置不同状态的动画图片
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i=1; i<=6; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"gif%zd", i]];
+        [idleImages addObject:image];
+    }
+    //普通状态
+    [header setImages:idleImages forState:MJRefreshStateIdle];
+    //即将刷新
+    [header setImages:idleImages forState:MJRefreshStatePulling];
+    //正在刷新
+    [header setImages:idleImages forState:MJRefreshStateRefreshing];
+    // 隐藏时间
+    header.lastUpdatedTimeLabel.hidden = YES;
+    // 隐藏状态
+    header.stateLabel.hidden = YES;
+    // 设置 header
+    self.collectionView.mj_header = header;
+    
+    // 马上进入刷新状态
+    [self.collectionView.mj_header beginRefreshing];
+    
+    
+}
 
 #pragma mark --- 获取数据
 - (void)loadNewData{
@@ -72,8 +101,10 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.dataList insertObjects:newData atIndexes:set];
         [self.collectionView reloadData];
+        [self.collectionView.mj_header endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error=%@",error);
+        [self.collectionView.mj_header endRefreshing];
     }];
 }
 
