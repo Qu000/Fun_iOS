@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DuanziItem.h"
 
 @interface JHNewsCell : UICollectionViewCell
 
+/** Duanzi*/
+@property (nonatomic, strong) DuanziItem * model;
 @end

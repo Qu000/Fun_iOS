@@ -64,7 +64,7 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     //设置超时时间
     manager.requestSerializer.timeoutInterval = 15;
     [manager GET:url parameters:paramer progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject=%@",responseObject);
+//        NSLog(@"responseObject=%@",responseObject);
         NSArray *newData = [DuanziItem mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         
         //将最新的数据，添加到总数组的最  前 面
@@ -93,8 +93,10 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
 
 - (void)setupCollectionDefault{
     
+//    self.view.backgroundColor = [UIColor purpleColor];
+    
     customLayout *layout = [[customLayout alloc]initWithType:LayoutTypeCoverFlow];
-    layout.itemSize = CGSizeMake(250, 250);
+    layout.itemSize = CGSizeMake(350, 350);
 
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:layout];
     
@@ -121,17 +123,17 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
 
-    if (self.dataList.count != 0) {
-        return self.dataList.count;
-    }else{
-       return 4;
-    }
+    return self.dataList.count;
     
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     JHNewsCell *cell = (JHNewsCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    cell.model = self.dataList[indexPath.row];
+    cell.layer.cornerRadius = 20;
+    cell.layer.masksToBounds = YES;
     
     return cell;
 }
