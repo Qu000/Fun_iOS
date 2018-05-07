@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *spPraiseBtn;
 
 @property (weak, nonatomic) IBOutlet UIStackView *SPStackView;
+@property (weak, nonatomic) IBOutlet UIView *SPContentView;
+
 @end
 
 @implementation JHNewsCell
@@ -50,6 +52,9 @@
     self.spNickNameLab.text = model.niceComments.userName;
     self.spContentLab.text = model.niceComments.content;
     [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceComments.praise]] forState:UIControlStateNormal];
+    
+    self.SPContentView.layer.cornerRadius = 20;
+    self.SPContentView.layer.masksToBounds = YES;
 }
 
 - (void)awakeFromNib {
