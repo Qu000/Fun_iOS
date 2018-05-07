@@ -10,6 +10,9 @@
 
 @interface JHVideoCell()
 
+@property (nonatomic, weak)UILabel *timeLab;
+@property (nonatomic, weak)UILabel *shareLab;
+
 @property (nonatomic, weak)UIButton *hotBtn;
 @property (nonatomic, weak)UIButton *commentBtn;
 @property (nonatomic, weak)UIButton *praiseBtn;
@@ -21,6 +24,8 @@
 @property (nonatomic, weak)UILabel *SPNickNameLab;
 @property (nonatomic, weak)UILabel *SPContentLab;
 @property (nonatomic, weak)UIButton *SPPraiseBtn;
+
+@property (nonatomic, weak)UIView *SPContentView;
 
 @end
 
@@ -37,6 +42,22 @@
 
 - (void)setupUI{
     
+    UILabel *timeLab= [[UILabel alloc]init];
+    [timeLab setTextColor:JHRGB(57, 185, 170)];
+    timeLab.textAlignment = NSTextAlignmentLeft;
+    timeLab.numberOfLines = 0;
+    [timeLab setFont:[UIFont systemFontOfSize:13]];
+    [self addSubview:timeLab];
+    self.timeLab = timeLab;
+    
+    UILabel *shareLab= [[UILabel alloc]init];
+    [shareLab setTextColor:JHRGB(255, 143, 0)];
+    shareLab.textAlignment = NSTextAlignmentLeft;
+    shareLab.numberOfLines = 0;
+    [shareLab setFont:[UIFont systemFontOfSize:13]];
+    [self addSubview:shareLab];
+    self.shareLab = shareLab;
+    
     self.hotBtn = [self createButton];
     self.commentBtn = [self createButton];
     self.praiseBtn = [self createButton];
@@ -50,9 +71,31 @@
     [self addSubview:contentLab];
     self.contentLab = contentLab;
     
+    UIView *SPContentView = [[UIView alloc]init];
+    [self addSubview:SPContentView];
+    self.SPContentView = SPContentView;
     
+    UIImageView *spHeadImage = [[UIImageView alloc]init];
+    [self.SPContentView addSubview:spHeadImage];
+    self.SPHeadImage = spHeadImage;
+    
+    self.SPNickNameLab = [self createLabel];
+    self.SPContentLab = [self createLabel];
+    
+    UIButton *SPPraiseBtn = [[UIButton alloc]init];
+    [SPPraiseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    SPPraiseBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    SPPraiseBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    [self.SPContentView addSubview:SPPraiseBtn];
+    self.SPPraiseBtn = SPPraiseBtn;
+}
+
+- (void)layoutSubviews{
     
 }
+
+
+
 - (UIButton *)createButton{
     UIButton *btn = [[UIButton alloc]init];
     [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
@@ -67,7 +110,7 @@
     lab.textAlignment = NSTextAlignmentLeft;
     lab.numberOfLines = 0;
     [lab setFont:[UIFont systemFontOfSize:11]];
-    [self addSubview:lab];
+    [self.SPContentView addSubview:lab];
     return lab;
 }
 - (void)awakeFromNib {
