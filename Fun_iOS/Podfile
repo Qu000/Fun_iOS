@@ -14,5 +14,5 @@ target 'Fun_iOS' do
 
 pod 'AFNetworking', '~> 3.1.0'
 pod 'SDWebImage', '~> 3.8.1’
-
+pod 'MJExtension', '~> 3.0.10'
 end

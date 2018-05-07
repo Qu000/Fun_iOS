@@ -20,6 +20,8 @@
 		5131D471209AB32400819589 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D46C209AB32400819589 /* main.m */; };
 		5131D472209AB32400819589 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D46D209AB32400819589 /* AppDelegate.m */; };
 		5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D474209AB3A300819589 /* UIView+JHExtension.m */; };
+		518D0287209FFB7A006D30E7 /* DuanziItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 518D0283209FFB7A006D30E7 /* DuanziItem.m */; };
+		518D0288209FFB7A006D30E7 /* NiceComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 518D0286209FFB7A006D30E7 /* NiceComment.m */; };
 		51B51319209C30180086209F /* customLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51318209C30180086209F /* customLayout.m */; };
 		51B51323209C358E0086209F /* JHNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51321209C358E0086209F /* JHNewsCell.m */; };
 		51B51324209C358E0086209F /* JHNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B51322209C358E0086209F /* JHNewsCell.xib */; };
@@ -27,6 +29,8 @@
 		51B51329209C36060086209F /* JHVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B51327209C36060086209F /* JHVideoCell.xib */; };
 		51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B5132B209C3F860086209F /* JHNewsViewController.m */; };
 		51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B5132E209C3F960086209F /* JHVideoViewController.m */; };
+		51B51338209C659A0086209F /* VideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51332209C65990086209F /* VideoItem.m */; };
+		51B51339209C659A0086209F /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51336209C659A0086209F /* Video.m */; };
 		96F9BC0B4351DB9CF870D09A /* libPods-Fun_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */; };
 		AB1EA948E4A567F8E62DDEE6 /* libPods-Fun_iOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +75,10 @@
 		5131D46D209AB32400819589 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5131D473209AB3A300819589 /* UIView+JHExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+JHExtension.h"; sourceTree = "<group>"; };
 		5131D474209AB3A300819589 /* UIView+JHExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+JHExtension.m"; sourceTree = "<group>"; };
+		518D0283209FFB7A006D30E7 /* DuanziItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DuanziItem.m; sourceTree = "<group>"; };
+		518D0284209FFB7A006D30E7 /* NiceComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceComment.h; sourceTree = "<group>"; };
+		518D0285209FFB7A006D30E7 /* DuanziItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuanziItem.h; sourceTree = "<group>"; };
+		518D0286209FFB7A006D30E7 /* NiceComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceComment.m; sourceTree = "<group>"; };
 		51B51317209C30170086209F /* customLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customLayout.h; sourceTree = "<group>"; };
 		51B51318209C30180086209F /* customLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customLayout.m; sourceTree = "<group>"; };
 		51B51320209C358E0086209F /* JHNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNewsCell.h; sourceTree = "<group>"; };
@@ -83,6 +91,11 @@
 		51B5132B209C3F860086209F /* JHNewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHNewsViewController.m; sourceTree = "<group>"; };
 		51B5132D209C3F960086209F /* JHVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoViewController.h; sourceTree = "<group>"; };
 		51B5132E209C3F960086209F /* JHVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoViewController.m; sourceTree = "<group>"; };
+		51B51330209C4D920086209F /* APIConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIConfig.h; sourceTree = "<group>"; };
+		51B51332209C65990086209F /* VideoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoItem.m; sourceTree = "<group>"; };
+		51B51334209C65990086209F /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		51B51335209C659A0086209F /* VideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoItem.h; sourceTree = "<group>"; };
+		51B51336209C659A0086209F /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
 		601C4DA65ACDF02CA482A0BB /* Pods-Fun_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOS/Pods-Fun_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fun_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82037E229A873C33EB50AB51 /* Pods-Fun_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOSTests/Pods-Fun_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -187,6 +200,8 @@
 		5131D4342099B88300819589 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				518D028A209FFBD1006D30E7 /* DuanziModel */,
+				518D0289209FFBC1006D30E7 /* VideoModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +325,7 @@
 				51B51317209C30170086209F /* customLayout.h */,
 				51B51318209C30180086209F /* customLayout.m */,
 				5131D468209AB32400819589 /* Macros.h */,
+				51B51330209C4D920086209F /* APIConfig.h */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -323,6 +339,28 @@
 				5131D46B209AB32400819589 /* Main.storyboard */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		518D0289209FFBC1006D30E7 /* VideoModel */ = {
+			isa = PBXGroup;
+			children = (
+				51B51335209C659A0086209F /* VideoItem.h */,
+				51B51332209C65990086209F /* VideoItem.m */,
+				51B51334209C65990086209F /* Video.h */,
+				51B51336209C659A0086209F /* Video.m */,
+			);
+			path = VideoModel;
+			sourceTree = "<group>";
+		};
+		518D028A209FFBD1006D30E7 /* DuanziModel */ = {
+			isa = PBXGroup;
+			children = (
+				518D0285209FFB7A006D30E7 /* DuanziItem.h */,
+				518D0283209FFB7A006D30E7 /* DuanziItem.m */,
+				518D0284209FFB7A006D30E7 /* NiceComment.h */,
+				518D0286209FFB7A006D30E7 /* NiceComment.m */,
+			);
+			path = DuanziModel;
 			sourceTree = "<group>";
 		};
 		D567556795B4874F5A175590 /* Pods */ = {
@@ -480,7 +518,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				518D0288209FFB7A006D30E7 /* NiceComment.m in Sources */,
+				51B51338209C659A0086209F /* VideoItem.m in Sources */,
 				5131D4522099C00100819589 /* JHSeeViewController.m in Sources */,
+				51B51339209C659A0086209F /* Video.m in Sources */,
 				51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */,
 				51B51328209C36060086209F /* JHVideoCell.m in Sources */,
 				5131D46F209AB32400819589 /* JHNavigationController.m in Sources */,
@@ -490,6 +531,7 @@
 				5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */,
 				5131D45F209AADD000819589 /* JHHomeTopView.m in Sources */,
 				51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */,
+				518D0287209FFB7A006D30E7 /* DuanziItem.m in Sources */,
 				5131D471209AB32400819589 /* main.m in Sources */,
 				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
 				51B51323209C358E0086209F /* JHNewsCell.m in Sources */,

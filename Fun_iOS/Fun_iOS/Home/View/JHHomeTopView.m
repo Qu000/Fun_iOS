@@ -85,7 +85,7 @@
     [UIView animateWithDuration:0.2 animations:^{
         self.lineView.centerX = button.centerX;
     } completion:^(BOOL finished) {
-        NSLog(@"切换到->%@",button.titleLabel.text);
+//        NSLog(@"切换到->%@",button.titleLabel.text);
     }];
 }
 
