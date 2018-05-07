@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *spContentLab;
 @property (weak, nonatomic) IBOutlet UIButton *spPraiseBtn;
 
+@property (weak, nonatomic) IBOutlet UIStackView *SPStackView;
 @end
 
 @implementation JHNewsCell
@@ -32,7 +33,7 @@
     
     self.timeLab.text = [self getTimeToTimeStr:model.postTime];
     self.contentLab.text = model.content;
-    self.shareLab.text = [NSString stringWithFormat:@"%@",[self changeNumberToStr:model.share]];
+    self.shareLab.text = [NSString stringWithFormat:@"%@人分享",[self changeNumberToStr:model.share]];
     
 
     [self.hotBtn setTitle:[self changeNumberToStr:model.hotDegree] forState:UIControlStateNormal];
@@ -40,9 +41,15 @@
     [self.praiseBtn setTitle:[self changeNumberToStr:model.praise] forState:UIControlStateNormal];
     [self.shareBtn setTitle:@"分享" forState:UIControlStateNormal];
     
+    if (model.niceComments.userName) {
+        [self.spHeadImage downloadImage:model.niceComments.avatar placeholder:@"placeHolderHead"];
+    }else{
+        self.SPStackView.hidden = YES;
+    }
     
-    
-    
+    self.spNickNameLab.text = model.niceComments.userName;
+    self.spContentLab.text = model.niceComments.content;
+    [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceComments.praise]] forState:UIControlStateNormal];
 }
 
 - (void)awakeFromNib {

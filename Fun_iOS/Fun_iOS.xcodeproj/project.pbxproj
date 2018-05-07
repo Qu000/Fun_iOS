@@ -22,6 +22,7 @@
 		5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D474209AB3A300819589 /* UIView+JHExtension.m */; };
 		518D0287209FFB7A006D30E7 /* DuanziItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 518D0283209FFB7A006D30E7 /* DuanziItem.m */; };
 		518D0288209FFB7A006D30E7 /* NiceComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 518D0286209FFB7A006D30E7 /* NiceComment.m */; };
+		518D028D20A04E16006D30E7 /* UIImageView+SDWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 518D028B20A04E16006D30E7 /* UIImageView+SDWebImage.m */; };
 		51B51319209C30180086209F /* customLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51318209C30180086209F /* customLayout.m */; };
 		51B51323209C358E0086209F /* JHNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51321209C358E0086209F /* JHNewsCell.m */; };
 		51B51324209C358E0086209F /* JHNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51B51322209C358E0086209F /* JHNewsCell.xib */; };
@@ -79,6 +80,8 @@
 		518D0284209FFB7A006D30E7 /* NiceComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NiceComment.h; sourceTree = "<group>"; };
 		518D0285209FFB7A006D30E7 /* DuanziItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DuanziItem.h; sourceTree = "<group>"; };
 		518D0286209FFB7A006D30E7 /* NiceComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NiceComment.m; sourceTree = "<group>"; };
+		518D028B20A04E16006D30E7 /* UIImageView+SDWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+SDWebImage.m"; sourceTree = "<group>"; };
+		518D028C20A04E16006D30E7 /* UIImageView+SDWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+SDWebImage.h"; sourceTree = "<group>"; };
 		51B51317209C30170086209F /* customLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = customLayout.h; sourceTree = "<group>"; };
 		51B51318209C30180086209F /* customLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = customLayout.m; sourceTree = "<group>"; };
 		51B51320209C358E0086209F /* JHNewsCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHNewsCell.h; sourceTree = "<group>"; };
@@ -326,6 +329,8 @@
 				51B51318209C30180086209F /* customLayout.m */,
 				5131D468209AB32400819589 /* Macros.h */,
 				51B51330209C4D920086209F /* APIConfig.h */,
+				518D028C20A04E16006D30E7 /* UIImageView+SDWebImage.h */,
+				518D028B20A04E16006D30E7 /* UIImageView+SDWebImage.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -536,6 +541,7 @@
 				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
 				51B51323209C358E0086209F /* JHNewsCell.m in Sources */,
 				5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */,
+				518D028D20A04E16006D30E7 /* UIImageView+SDWebImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

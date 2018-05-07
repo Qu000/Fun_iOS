@@ -14,4 +14,6 @@
 #import "APIConfig.h"
 #import <AFNetworking.h>
 #import "MJExtension.h"
+#import "SDWebImageManager.h"
+#import "UIImageView+SDWebImage.h"
 #endif /* PrefixHeader_pch */
