@@ -86,29 +86,41 @@
     
     UILabel *contentLab = [[UILabel alloc]init];
     [contentLab setTextColor:[UIColor blackColor]];
+    [contentLab setBackgroundColor:JHRGB(0, 158, 156)];
     contentLab.textAlignment = NSTextAlignmentLeft;
     contentLab.numberOfLines = 0;
     [contentLab setFont:[UIFont systemFontOfSize:14]];
     [self addSubview:contentLab];
     self.contentLab = contentLab;
     
-//    UIView *SPContentView = [[UIView alloc]init];
-//    [self addSubview:SPContentView];
-//    self.spContentView = SPContentView;
-//
-//    UIImageView *spHeadImage = [[UIImageView alloc]init];
-//    [self.spContentView addSubview:spHeadImage];
-//    self.spHeadImage = spHeadImage;
-//
-//    self.spNickNameLab = [self createLabel];
-//    self.spContentLab = [self createLabel];
-//
-//    UIButton *SPPraiseBtn = [[UIButton alloc]init];
-//    [SPPraiseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-//    SPPraiseBtn.titleLabel.font = [UIFont systemFontOfSize:11];
-//    SPPraiseBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    [self.spContentView addSubview:SPPraiseBtn];
-//    self.spPraiseBtn = SPPraiseBtn;
+    UIView *SPContentView = [[UIView alloc]init];
+    [SPContentView setBackgroundColor:JHRGB(255, 205, 237)];
+    [self addSubview:SPContentView];
+    self.spContentView = SPContentView;
+
+    UIImageView *spHeadImage = [[UIImageView alloc]init];
+    [self.spContentView addSubview:spHeadImage];
+    self.spHeadImage = spHeadImage;
+
+    self.spNickNameLab = [self createLabel];
+    self.spContentLab = [self createLabel];
+
+    UIButton *SPPraiseBtn = [[UIButton alloc]init];
+    [SPPraiseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    SPPraiseBtn.titleLabel.font = [UIFont systemFontOfSize:11];
+    SPPraiseBtn.titleLabel.textAlignment = NSTextAlignmentRight;
+    [SPPraiseBtn setImage:[UIImage imageNamed:@"praise2"] forState:UIControlStateNormal];
+    [self.spContentView addSubview:SPPraiseBtn];
+    self.spPraiseBtn = SPPraiseBtn;
+    
+    self.spContentView.layer.cornerRadius = 14;
+    self.spContentView.layer.masksToBounds = YES;
+    
+    self.spHeadImage.layer.cornerRadius = 25;
+    self.spHeadImage.layer.masksToBounds = YES;
+    
+    self.contentLab.layer.cornerRadius = 14;
+    self.contentLab.layer.masksToBounds = YES;
 }
 
 - (void)setModel:(VideoItem *)model{
@@ -143,11 +155,7 @@
     self.spContentLab.text = model.niceModel.content;
     [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceModel.praise]] forState:UIControlStateNormal];
     
-    self.spContentView.layer.cornerRadius = 14;
-    self.spContentView.layer.masksToBounds = YES;
     
-    self.spHeadImage.layer.cornerRadius = 25;
-    self.spHeadImage.layer.masksToBounds = YES;
     
 }
 - (void)layoutSubviews{
@@ -176,6 +184,21 @@
     
     self.shareBtn.frame = CGRectMake(self.thumbW, CGRectGetMaxY(self.praiseLab.frame)+M, btnWH, btnWH);
     self.shareLab2.frame = CGRectMake(self.thumbW, CGRectGetMaxY(self.shareBtn.frame), btnWH, labH);
+    
+    //spContentView
+    CGFloat spContentViewH = 50;
+    self.spContentView.frame = CGRectMake(0, CGRectGetMaxY(self.thumbImage.frame)+10, self.frame.size.width, spContentViewH);
+    
+    self.spHeadImage.frame = CGRectMake(0, 0, 50, 50);
+    self.spNickNameLab.frame = CGRectMake(CGRectGetMaxX(self.spHeadImage.frame)+5, 5, 80, 18);
+    self.spContentLab.frame = CGRectMake(CGRectGetMaxX(self.spHeadImage.frame)+5, CGRectGetMaxY(self.spNickNameLab.frame)+5, self.frame.size.width-CGRectGetMaxX(self.spHeadImage.frame)-5-5, 18);
+    
+    CGFloat spPraiseBtnX = 80+5+CGRectGetMaxX(self.spNickNameLab.frame);
+    self.spPraiseBtn.frame = CGRectMake(spPraiseBtnX, 5, 80, 18);
+    
+    CGFloat itemH = CGRectGetMaxY(self.spContentView.frame);
+    self.block(itemH);
+    
 }
 
 

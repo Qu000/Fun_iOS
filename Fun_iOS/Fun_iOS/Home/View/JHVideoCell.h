@@ -8,8 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "VideoItem.h"
+
+typedef void(^itemBlock)(NSInteger itemH);
+
 @interface JHVideoCell : UICollectionViewCell
 
 /** VideoItem*/
 @property (nonatomic, strong) VideoItem * model;
+
+/** block*/
+@property (nonatomic, copy) itemBlock block;
 @end

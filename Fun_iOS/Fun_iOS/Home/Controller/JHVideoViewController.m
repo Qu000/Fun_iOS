@@ -17,6 +17,8 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray * dataList;
 @property (nonatomic, strong)NSMutableArray * tempArr;
+/** layout*/
+@property (nonatomic, strong) customLayout * layout;
 
 @end
 
@@ -121,6 +123,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     
     customLayout *layout = [[customLayout alloc]initWithType:LayoutTypeLinear];
     layout.itemSize = CGSizeMake(350, 350);
+    self.layout = layout;
     
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:layout];
     
@@ -154,6 +157,9 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     
     JHVideoCell *cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.model = self.dataList[indexPath.row];
+    cell.block = ^(NSInteger itemH) {
+        self.layout.itemSize = CGSizeMake(350, itemH);
+    };
     return cell;
 }
 
