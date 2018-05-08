@@ -43,19 +43,28 @@
     [self.praiseBtn setTitle:[self changeNumberToStr:model.praise] forState:UIControlStateNormal];
     [self.shareBtn setTitle:@"分享" forState:UIControlStateNormal];
     
-    if (model.niceComments.userName) {
-        [self.spHeadImage downloadImage:model.niceComments.avatar placeholder:@"placeHolderHead"];
+    
+    model.niceModel = [NiceComment mj_objectWithKeyValues:model.niceComments.firstObject];
+    NSLog(@"userName=%@",model.niceModel.userName);
+    if (model.niceModel.userName) {
+        [self.spHeadImage downloadImage:model.niceModel.avatar placeholder:@"placeHolderHead"];
+        self.SPContentView.hidden = NO;
     }else{
         self.SPStackView.hidden = YES;
     }
     
-    self.spNickNameLab.text = model.niceComments.userName;
-    self.spContentLab.text = model.niceComments.content;
-    [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceComments.praise]] forState:UIControlStateNormal];
+    self.spNickNameLab.text = model.niceModel.userName;
+    self.spContentLab.text = model.niceModel.content;
+    [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceModel.praise]] forState:UIControlStateNormal];
     
-    self.SPContentView.layer.cornerRadius = 20;
+    self.SPContentView.layer.cornerRadius = 16;
     self.SPContentView.layer.masksToBounds = YES;
+    
+    self.spHeadImage.layer.cornerRadius = 25;
+    self.spHeadImage.layer.masksToBounds = YES;
+    
 }
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -78,14 +87,14 @@
 - (NSString *)changeNumberToStr:(NSInteger)number{
     if (number > 10000) {
         NSMutableString *hotStr =  [[NSMutableString alloc] initWithString:[NSString stringWithFormat:@"%ld",number]];
-        NSInteger index = number%10000;
+        NSInteger index = number/10000;
         
         //假定百万为顶级
-        if (index>10) {
+        if (index>=10) {
             [hotStr insertString:@"." atIndex:2];
         }else if (index>100) {
             [hotStr insertString:@"." atIndex:3];
-        }else {
+        }else if (index < 10 || index > 1000){
             [hotStr insertString:@"." atIndex:1];
         }
         

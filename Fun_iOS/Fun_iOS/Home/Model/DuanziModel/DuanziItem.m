@@ -6,13 +6,13 @@
 
 #import "DuanziItem.h"
 
-@interface DuanziItem ()
-@end
 @implementation DuanziItem
-
 + (NSDictionary *)mj_replacedKeyFromPropertyName
 {
     return @{@"NewId": @"id"};
 }
 
+//+ (NSDictionary *)mj_objectClassInArray{
+//    return @{@"niceComments":[NiceComment class]};
+//}
 @end

@@ -6,9 +6,6 @@
 
 #import "NiceComment.h"
 
-
-@interface NiceComment ()
-@end
 @implementation NiceComment
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName

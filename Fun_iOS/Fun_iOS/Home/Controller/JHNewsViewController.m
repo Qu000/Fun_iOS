@@ -93,15 +93,18 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     //设置超时时间
     manager.requestSerializer.timeoutInterval = 15;
     [manager GET:url parameters:paramer progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//        NSLog(@"responseObject=%@",responseObject);
+        
+        NSLog(@"responseObject--items=%@",responseObject[@"items"]);
         NSArray *newData = [DuanziItem mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         
+        //正确步骤1
         //将最新的数据，添加到总数组的最  前 面
         NSRange range = NSMakeRange(0, newData.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.dataList insertObjects:newData atIndexes:set];
         [self.collectionView reloadData];
         [self.collectionView.mj_header endRefreshing];
+        self.collectionView.mj_header.hidden = YES;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error=%@",error);
         [self.collectionView.mj_header endRefreshing];
@@ -214,9 +217,13 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     if (velocity < -5) {
         //向上,隐藏导航栏
         [self.navigationController setNavigationBarHidden:YES animated:YES];
+        
+        self.collectionView.mj_header.hidden = YES;
     }else if(velocity > 5){
         //向下,显示导航栏
         [self.navigationController setNavigationBarHidden:NO animated:YES];
+        
+        self.collectionView.mj_header.hidden = NO;
     }else if(velocity == 0){
         //停止拖拽
     }

@@ -13,4 +13,6 @@
 
 /** Duanzi*/
 @property (nonatomic, strong) DuanziItem * model;
+/** NiceComment*/
+//@property (nonatomic, strong) NiceComment * niceModel;
 @end

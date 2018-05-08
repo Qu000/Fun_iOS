@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "NiceComment.h"
 
 @interface DuanziItem : NSObject
@@ -15,8 +15,9 @@
 
 @property (nonatomic, assign) NSInteger NewId;
 
-///神评(若不为空，则展示在item里)
-@property (nonatomic, strong) NiceComment * niceComments;
+///神评(若不为空，则展示在item里)niceComments
+@property (nonatomic, strong) NSArray *niceComments;
+@property (nonatomic, strong) NiceComment *niceModel;
 
 ///热门数
 @property (nonatomic, assign) NSInteger hotDegree;
