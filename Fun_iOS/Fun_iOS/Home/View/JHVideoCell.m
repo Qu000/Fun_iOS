@@ -49,8 +49,7 @@
 
 - (void)setupUI{
     UIImageView *thumbImage = [[UIImageView alloc]init];
-    //保持缩放比例显示
-    thumbImage.contentMode = UIViewContentModeScaleAspectFill;
+    thumbImage.contentMode = UIViewContentModeScaleAspectFit;
     [self addSubview:thumbImage];
     self.thumbImage = thumbImage;
     
@@ -140,7 +139,7 @@
     
     
     model.niceModel = [NiceComment mj_objectWithKeyValues:model.niceComments.firstObject];
-    NSLog(@"userName=%@",model.niceModel.userName);
+//    NSLog(@"userName=%@",model.niceModel.userName);
     if (model.niceModel.userName) {
         [self.spHeadImage downloadImage:model.niceModel.avatar placeholder:@"placeHolderHead"];
         self.spContentView.hidden = NO;

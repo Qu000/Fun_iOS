@@ -24,7 +24,7 @@
 
 -(NSArray *)dataList{
     if (!_dataList) {
-        _dataList = @[@"最新段子",@"随缘观看"];
+        _dataList = @[@"最新段子",@"搞笑视频"];
     }
     return _dataList;
 }

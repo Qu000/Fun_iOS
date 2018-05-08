@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray * dataList;
 @property (nonatomic, strong)NSMutableArray * tempArr;
+@property (nonatomic, assign)NSInteger offset;
 /** layout*/
 @property (nonatomic, strong) customLayout * layout;
 
@@ -42,10 +43,13 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.offset = 0;
 
     [self setupDefault];
     
     [self refreshTop];
+    
+    [self refreshDowm];
 }
 #pragma mark --- 下拉刷新
 - (void)refreshTop{
@@ -105,6 +109,80 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     }];
 }
 
+#pragma mark --- 上拉刷新
+- (void)refreshDowm{
+    
+    // 设置回调（一旦进入刷新状态，就调用 target 的 action，即调用 self 的 loadOldData 方法）
+    MJRefreshAutoGifFooter *footer = [MJRefreshAutoGifFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadOldData)];
+    
+    // 设置不同状态的动画图片
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i = 1; i<=6; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"gif%zd", i]];
+        [idleImages addObject:image];
+    }
+    //普通状态
+    [footer setImages:idleImages forState:MJRefreshStateIdle];
+    //即将刷新
+    [footer setImages:idleImages forState:MJRefreshStatePulling];
+    //正在刷新
+    [footer setImages:idleImages forState:MJRefreshStateRefreshing];
+    // 隐藏刷新状态文字
+    footer.refreshingTitleHidden = YES;
+    // 设置尾部
+    self.collectionView.mj_footer = footer;
+}
+
+#pragma mark --- 获取旧数据
+- (void)loadOldData{
+    /*
+     http://api.51touxiang.com/api/wuliao/getVideo?_ts=1525425969001&offset=8&time=1525422891000
+     */
+    NSString *timeSp = [self getNowTime];
+    NSString *offsetStr = [NSString stringWithFormat:@"%ld",(long)self.offset];
+    NSString *oldTimeSp = [self getOldTime:self.offset];
+    //time字段，当前时间-1小时，转为时间戳
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    NSDictionary *paramer = @{@"_ts":timeSp,
+                              @"offset":offsetStr,
+                              @"time":oldTimeSp
+                              };
+    NSString *url = [NSString stringWithFormat:@"%@%@",SERVER_HOST,API_DuanZi];
+    //接收参数类型
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", @"text/json", @"text/javascript",@"text/plain",@"image/gif", nil];
+    
+    //设置超时时间
+    manager.requestSerializer.timeoutInterval = 15;
+    [manager GET:url parameters:paramer progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //        NSLog(@"responseObject--items=%@",responseObject[@"items"]);
+        NSArray *oldData = [VideoItem mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
+        
+        //将最新的数据，添加到总数组的 最  后 面
+        [self.dataList addObjectsFromArray:oldData];
+        
+        
+        int i = (int)[self.dataList count]-1;
+        for(;i >= 0;i --){
+            //containsObject 判断元素是否存在于数组中(根据两者的内存地址判断，相同：YES  不同：NO）
+            if([oldData containsObject:[self.dataList objectAtIndex:i]]) {
+                [self.dataList removeObjectAtIndex:i];
+            }
+        }
+        
+        
+        [self.collectionView reloadData];
+        [self.collectionView.mj_footer endRefreshing];
+        self.collectionView.mj_footer.hidden = YES;
+        self.offset = self.offset+8;
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"error=%@",error);
+        [self.collectionView.mj_footer endRefreshing];
+    }];
+    
+}
+
+
 #pragma mark --- 获取当前时间戳
 - (NSString *)getNowTime{
     // 获取时间（非本地时区，需转换）
@@ -117,7 +195,22 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[localeDate timeIntervalSince1970]];//@"1517468580"
     return timeSp;
 }
+#pragma mark --- 获取1小时之前的时间戳
+- (NSString *)getOldTime:(NSInteger)hours{
+    //得到当前的时间
+    NSDate * date = [NSDate date];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    //设置时间间隔（秒）（这个我是计算出来的，不知道有没有简便的方法 )
+    NSInteger hoursTime = hours/8;
+    NSTimeInterval time = hoursTime * 60 * 60;//小时的秒数
+    //得到小时之前的当前时间
+    NSDate * lastTime = [date dateByAddingTimeInterval:-time];
+    // 时间转换成时间戳
+    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[lastTime timeIntervalSince1970]];
+    return timeSp;
 
+}
 
 - (void)setupDefault{
     
@@ -157,6 +250,9 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     
     JHVideoCell *cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     cell.model = self.dataList[indexPath.row];
+    cell.layer.cornerRadius = 20;
+    cell.layer.masksToBounds = YES;
+    
     cell.block = ^(NSInteger itemH) {
         self.layout.itemSize = CGSizeMake(350, itemH);
     };
@@ -212,10 +308,12 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
         //向上,隐藏导航栏
         [self.navigationController setNavigationBarHidden:YES animated:YES];
         self.collectionView.mj_header.hidden = YES;
+        self.collectionView.mj_footer.hidden = NO;
     }else if(velocity > 5){
         //向下,显示导航栏
         [self.navigationController setNavigationBarHidden:NO animated:YES];
         self.collectionView.mj_header.hidden = NO;
+        self.collectionView.mj_footer.hidden = YES;
     }else if(velocity == 0){
         //停止拖拽
     }
