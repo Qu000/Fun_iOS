@@ -12,5 +12,7 @@
 {
     return @{@"NewId": @"id"};
 }
-
+//+ (NSDictionary *)mj_objectClassInArray{
+//    return @{@"videos":[Video class]};
+//}
 @end

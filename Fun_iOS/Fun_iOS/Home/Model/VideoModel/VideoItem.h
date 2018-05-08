@@ -19,7 +19,8 @@
 @property (nonatomic, assign) NSInteger hotDegree;
 
 ///神评(如果存在，就展示到item里)
-@property (nonatomic, strong) NiceComment * niceComments;
+@property (nonatomic, strong) NSArray *niceComments;
+@property (nonatomic, strong) NiceComment *niceModel;
 
 ///该评论获赞数
 @property (nonatomic, assign) NSInteger praise;
@@ -31,5 +32,6 @@
 @property (nonatomic, assign) NSInteger type;
 
 ///视频信息
-@property (nonatomic, strong) Video * videos;
+@property (nonatomic, strong) NSArray *videos;
+@property (nonatomic, strong) Video *videoModel;
 @end

@@ -94,10 +94,9 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     manager.requestSerializer.timeoutInterval = 15;
     [manager GET:url parameters:paramer progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-        NSLog(@"responseObject--items=%@",responseObject[@"items"]);
+//        NSLog(@"responseObject--items=%@",responseObject[@"items"]);
         NSArray *newData = [DuanziItem mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         
-        //正确步骤1
         //将最新的数据，添加到总数组的最  前 面
         NSRange range = NSMakeRange(0, newData.count);
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];

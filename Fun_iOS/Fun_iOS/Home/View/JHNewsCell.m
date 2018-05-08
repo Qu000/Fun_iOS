@@ -45,10 +45,10 @@
     
     
     model.niceModel = [NiceComment mj_objectWithKeyValues:model.niceComments.firstObject];
-    NSLog(@"userName=%@",model.niceModel.userName);
+//    NSLog(@"userName=%@",model.niceModel.userName);
     if (model.niceModel.userName) {
         [self.spHeadImage downloadImage:model.niceModel.avatar placeholder:@"placeHolderHead"];
-        self.SPContentView.hidden = NO;
+        self.SPStackView.hidden = NO;
     }else{
         self.SPStackView.hidden = YES;
     }
@@ -57,7 +57,7 @@
     self.spContentLab.text = model.niceModel.content;
     [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceModel.praise]] forState:UIControlStateNormal];
     
-    self.SPContentView.layer.cornerRadius = 16;
+    self.SPContentView.layer.cornerRadius = 14;
     self.SPContentView.layer.masksToBounds = YES;
     
     self.spHeadImage.layer.cornerRadius = 25;
@@ -78,7 +78,7 @@
     //实例化一个NSDateFormatter对象
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
     //设定时间格式,这里可以设置成自己需要的格式
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     NSString *timeStr = [dateFormatter stringFromDate:detailDate];
     return timeStr;
 }

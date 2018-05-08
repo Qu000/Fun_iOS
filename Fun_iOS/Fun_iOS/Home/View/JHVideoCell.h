@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "VideoItem.h"
 @interface JHVideoCell : UICollectionViewCell
 
+/** VideoItem*/
+@property (nonatomic, strong) VideoItem * model;
 @end

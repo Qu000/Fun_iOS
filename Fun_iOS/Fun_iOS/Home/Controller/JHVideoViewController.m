@@ -43,9 +43,37 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 
     [self setupDefault];
     
-    [self loadNewData];
+    [self refreshTop];
 }
-
+#pragma mark --- 下拉刷新
+- (void)refreshTop{
+    
+    MJRefreshGifHeader *header = [MJRefreshGifHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    
+    // 设置不同状态的动画图片
+    NSMutableArray *idleImages = [NSMutableArray array];
+    for (NSUInteger i=1; i<=6; i++) {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"gif%zd", i]];
+        [idleImages addObject:image];
+    }
+    //普通状态
+    [header setImages:idleImages forState:MJRefreshStateIdle];
+    //即将刷新
+    [header setImages:idleImages forState:MJRefreshStatePulling];
+    //正在刷新
+    [header setImages:idleImages forState:MJRefreshStateRefreshing];
+    // 隐藏时间
+    header.lastUpdatedTimeLabel.hidden = YES;
+    // 隐藏状态
+    header.stateLabel.hidden = YES;
+    // 设置 header
+    self.collectionView.mj_header = header;
+    
+    // 马上进入刷新状态
+    [self.collectionView.mj_header beginRefreshing];
+    
+    
+}
 #pragma mark --- 获取数据
 - (void)loadNewData{
     NSString * timeSp = [self getNowTime];
@@ -69,6 +97,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
         NSIndexSet *set = [NSIndexSet indexSetWithIndexesInRange:range];
         [self.dataList insertObjects:newData atIndexes:set];
         [self.collectionView reloadData];
+        self.collectionView.mj_header.hidden = YES;
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error=%@",error);
     }];
@@ -91,7 +120,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 - (void)setupDefault{
     
     customLayout *layout = [[customLayout alloc]initWithType:LayoutTypeLinear];
-    layout.itemSize = CGSizeMake(250, 250);
+    layout.itemSize = CGSizeMake(350, 350);
     
     UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:layout];
     
@@ -117,17 +146,14 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    if (self.dataList.count != 0) {
-        return self.dataList.count;
-    }else{
-        return 4;
-    }
+    return self.dataList.count;
+    
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     JHVideoCell *cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    
+    cell.model = self.dataList[indexPath.row];
     return cell;
 }
 
@@ -179,9 +205,11 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     if (velocity < -5) {
         //向上,隐藏导航栏
         [self.navigationController setNavigationBarHidden:YES animated:YES];
+        self.collectionView.mj_header.hidden = YES;
     }else if(velocity > 5){
         //向下,显示导航栏
         [self.navigationController setNavigationBarHidden:NO animated:YES];
+        self.collectionView.mj_header.hidden = NO;
     }else if(velocity == 0){
         //停止拖拽
     }
