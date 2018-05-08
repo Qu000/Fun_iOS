@@ -85,11 +85,10 @@
     self.shareLab2 = [self createBtnTitle];
     
     UILabel *contentLab = [[UILabel alloc]init];
-    [contentLab setTextColor:[UIColor blackColor]];
-    [contentLab setBackgroundColor:JHRGB(0, 158, 156)];
-    contentLab.textAlignment = NSTextAlignmentLeft;
+    [contentLab setTextColor:JHRGB(0, 158, 156)];
+//    [contentLab setBackgroundColor:JHRGB(255, 205, 237)];
+    contentLab.textAlignment = NSTextAlignmentCenter;
     contentLab.numberOfLines = 0;
-    [contentLab setFont:[UIFont systemFontOfSize:14]];
     [self addSubview:contentLab];
     self.contentLab = contentLab;
     
@@ -106,7 +105,7 @@
     self.spContentLab = [self createLabel];
 
     UIButton *SPPraiseBtn = [[UIButton alloc]init];
-    [SPPraiseBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [SPPraiseBtn setTitleColor:JHRGB(0, 158, 156) forState:UIControlStateNormal];
     SPPraiseBtn.titleLabel.font = [UIFont systemFontOfSize:11];
     SPPraiseBtn.titleLabel.textAlignment = NSTextAlignmentRight;
     [SPPraiseBtn setImage:[UIImage imageNamed:@"praise2"] forState:UIControlStateNormal];
@@ -119,8 +118,6 @@
     self.spHeadImage.layer.cornerRadius = 25;
     self.spHeadImage.layer.masksToBounds = YES;
     
-    self.contentLab.layer.cornerRadius = 14;
-    self.contentLab.layer.masksToBounds = YES;
 }
 
 - (void)setModel:(VideoItem *)model{
@@ -167,7 +164,7 @@
     
     self.thumbW = 300;
     self.thumbH = 300;
-    self.thumbImage.frame = CGRectMake(0, CGRectGetMaxY(self.timeLab.frame), self.thumbW, self.thumbH);
+    self.thumbImage.frame = CGRectMake(0, CGRectGetMaxY(self.shareLab.frame), self.thumbW, self.thumbH);
   
 //    300/4=75
     CGFloat btnWH = 50;
@@ -185,9 +182,14 @@
     self.shareBtn.frame = CGRectMake(self.thumbW, CGRectGetMaxY(self.praiseLab.frame)+M, btnWH, btnWH);
     self.shareLab2.frame = CGRectMake(self.thumbW, CGRectGetMaxY(self.shareBtn.frame), btnWH, labH);
     
+    CGSize size = CGSizeMake(self.frame.size.width, 1000);
+    UIFont *contentLabFont = [UIFont fontWithName:@"Arial" size:14];
+    CGSize contentLabSize = [self.contentLab.text sizeWithFont:contentLabFont constrainedToSize:size];
+    self.contentLab.frame = CGRectMake(0, CGRectGetMaxY(self.thumbImage.frame)+5, self.frame.size.width, contentLabSize.height);
+    
     //spContentView
     CGFloat spContentViewH = 50;
-    self.spContentView.frame = CGRectMake(0, CGRectGetMaxY(self.thumbImage.frame)+10, self.frame.size.width, spContentViewH);
+    self.spContentView.frame = CGRectMake(0, CGRectGetMaxY(self.contentLab.frame)+10, self.frame.size.width, spContentViewH);
     
     self.spHeadImage.frame = CGRectMake(0, 0, 50, 50);
     self.spNickNameLab.frame = CGRectMake(CGRectGetMaxX(self.spHeadImage.frame)+5, 5, 80, 18);
@@ -221,7 +223,7 @@
 }
 - (UILabel *)createLabel{
     UILabel *lab= [[UILabel alloc]init];
-    [lab setTextColor:[UIColor whiteColor]];
+    [lab setTextColor:JHRGB(0, 158, 156)];
     lab.textAlignment = NSTextAlignmentLeft;
     lab.numberOfLines = 0;
     [lab setFont:[UIFont systemFontOfSize:11]];
