@@ -8,12 +8,21 @@
 
 #import "JHVideoCell.h"
 
+#import <MediaPlayer/MediaPlayer.h>
+/*
+ block绑定btn事件，控制器的cell里模导出播放器！
+ */
 @interface JHVideoCell()
 
-@property (nonatomic, weak)UIImageView *thumbImage;
+@property (nonatomic, weak)UIView *thumbView;
 @property (nonatomic, assign)CGFloat thumbH;
 @property (nonatomic, assign)CGFloat thumbW;
 @property (nonatomic, assign)NSInteger videoLength;
+/** 播放器*/
+@property (nonatomic, strong) MPMoviePlayerController * MPPlayer;
+@property (nonatomic, copy) NSString * playUrl;
+@property (nonatomic, copy) NSString * playerThumbUrl;
+@property (nonatomic, weak) UIButton *playBtn;
 
 @property (nonatomic, weak)UILabel *timeLab;
 @property (nonatomic, weak)UILabel *shareLab;
@@ -42,16 +51,26 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     [self setupUI];
     
     // Initialization code
 }
 
 - (void)setupUI{
-    UIImageView *thumbImage = [[UIImageView alloc]init];
-    thumbImage.contentMode = UIViewContentModeScaleAspectFit;
-    [self addSubview:thumbImage];
-    self.thumbImage = thumbImage;
+    UIView *thumbView = [[UIView alloc]init];
+    thumbView.contentMode = UIViewContentModeScaleAspectFit;
+    [self addSubview:thumbView];
+    self.thumbView = thumbView;
+    MPMoviePlayerController *player = [[MPMoviePlayerController alloc]init];
+    [self.thumbView addSubview:player.view];
+    self.MPPlayer = player;
+    UIButton *playerBtn = [[UIButton alloc]init];
+    [playerBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+    [playerBtn setBackgroundColor:[UIColor clearColor]];
+    [playerBtn addTarget:self action:@selector(clickToPlay:) forControlEvents:UIControlEventTouchUpInside];
+    [self.MPPlayer.view addSubview:playerBtn];
+    self.playBtn = playerBtn;
     
     UILabel *timeLab= [[UILabel alloc]init];
     [timeLab setTextColor:JHRGB(0, 158, 156)];//JHRGB(57, 185, 170)
@@ -123,8 +142,14 @@
     _model = model;
     
     model.videoModel = [Video mj_objectWithKeyValues:model.videos.firstObject];
-    [self.thumbImage downloadImage:model.videoModel.thumbUrl placeholder:@"placeHolderHead"];
-//    NSLog(@"model.videoModel.thumbUrl=%@",model.videoModel.thumbUrl);
+//    [self.thumbImage downloadImage:model.videoModel.thumbUrl placeholder:@"placeHolderHead"];
+    self.playUrl = model.videoModel.url;
+    self.playerThumbUrl = model.videoModel.thumbUrl;
+    self.MPPlayer.contentURL = [NSURL URLWithString:model.videoModel.url];
+    [self.MPPlayer prepareToPlay];
+//    self.playerVc.thumbImage = model.videoModel.thumbUrl;
+    
+    NSLog(@"model.videoModel.url=%@",model.videoModel.url);
     
     self.timeLab.text = [self getTimeToTimeStr:model.postTime];
     self.contentLab.text = model.content;
@@ -135,8 +160,7 @@
     self.commentLab.text = [self changeNumberToStr:model.comment];
     self.praiseLab.text = [self changeNumberToStr:model.praise];
     self.shareLab2.text = @"分享";
-   
-    
+
     
     model.niceModel = [NiceComment mj_objectWithKeyValues:model.niceComments.firstObject];
 //    NSLog(@"userName=%@",model.niceModel.userName);
@@ -163,8 +187,11 @@
     
     self.thumbW = 300;
     self.thumbH = 300;
-    self.thumbImage.frame = CGRectMake(0, CGRectGetMaxY(self.shareLab.frame), self.thumbW, self.thumbH);
-  
+    self.thumbView.frame = CGRectMake(0, CGRectGetMaxY(self.shareLab.frame), self.thumbW, self.thumbH);
+    self.MPPlayer.view.frame = self.thumbView.frame;
+    self.playBtn.frame = self.MPPlayer.view.frame;
+//    self.playBtn.frame = self.thumbImage.frame;
+    
 //    300/4=75
     CGFloat btnWH = 50;
     CGFloat labH = 20;
@@ -184,7 +211,7 @@
     CGSize size = CGSizeMake(self.frame.size.width, 1000);
     UIFont *contentLabFont = [UIFont fontWithName:@"Arial" size:14];
     CGSize contentLabSize = [self.contentLab.text sizeWithFont:contentLabFont constrainedToSize:size];
-    self.contentLab.frame = CGRectMake(0, CGRectGetMaxY(self.thumbImage.frame)+5, self.frame.size.width, contentLabSize.height);
+    self.contentLab.frame = CGRectMake(0, CGRectGetMaxY(self.thumbView.frame)+5, self.frame.size.width, contentLabSize.height);
     
     //spContentView
     CGFloat spContentViewH = 50;
@@ -197,7 +224,7 @@
     CGFloat spPraiseBtnX = 80+5+CGRectGetMaxX(self.spNickNameLab.frame);
     self.spPraiseBtn.frame = CGRectMake(spPraiseBtnX, 5, 80, 18);
     
-    CGFloat itemH = CGRectGetMaxY(self.spContentView.frame);
+    CGFloat itemH = CGRectGetMaxY(self.spContentView.frame)+20;
     self.block(itemH);
     
 }
@@ -230,6 +257,11 @@
     return lab;
 }
 
+
+#pragma mark --- 播放视频
+- (void)clickToPlay:(UIButton *)btn{
+    [self.MPPlayer play];
+}
 #pragma mark --- 时间戳转为时间串
 - (NSString *)getTimeToTimeStr:(NSInteger)nowTime{
     CGFloat time = nowTime/1000.0;

@@ -12,6 +12,8 @@
 
 #import "VideoItem.h"
 
+//#import <MediaPlayer/MediaPlayer.h>
+
 @interface JHVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -20,6 +22,9 @@
 @property (nonatomic, assign)NSInteger offset;
 /** layout*/
 @property (nonatomic, strong) customLayout * layout;
+/** 播放器*/
+//@property (nonatomic, strong) MPMoviePlayerController * MPPlayer;
+
 
 @end
 
@@ -95,7 +100,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     //设置超时时间
     manager.requestSerializer.timeoutInterval = 15;
     [manager GET:url parameters:paramer progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        NSLog(@"responseObject=%@",responseObject);
+
         NSArray *newData = [VideoItem mj_objectArrayWithKeyValuesArray:responseObject[@"items"]];
         
         //将最新的数据，添加到总数组的最  前 面
@@ -147,7 +152,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
                               @"offset":offsetStr,
                               @"time":oldTimeSp
                               };
-    NSString *url = [NSString stringWithFormat:@"%@%@",SERVER_HOST,API_DuanZi];
+    NSString *url = [NSString stringWithFormat:@"%@%@",SERVER_HOST,API_Video];
     //接收参数类型
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/html", @"text/json", @"text/javascript",@"text/plain",@"image/gif", nil];
     
@@ -160,16 +165,6 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
         
         //将最新的数据，添加到总数组的 最  后 面
         [self.dataList addObjectsFromArray:oldData];
-        
-        
-        int i = (int)[self.dataList count]-1;
-        for(;i >= 0;i --){
-            //containsObject 判断元素是否存在于数组中(根据两者的内存地址判断，相同：YES  不同：NO）
-            if([oldData containsObject:[self.dataList objectAtIndex:i]]) {
-                [self.dataList removeObjectAtIndex:i];
-            }
-        }
-        
         
         [self.collectionView reloadData];
         [self.collectionView.mj_footer endRefreshing];
@@ -185,14 +180,11 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 
 #pragma mark --- 获取当前时间戳
 - (NSString *)getNowTime{
-    // 获取时间（非本地时区，需转换）
-    NSDate * today = [NSDate date];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate:today];
-    // 转换成当地时间
-    NSDate *localeDate = [today dateByAddingTimeInterval:interval];
-    // 时间转换成时间戳
-    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[localeDate timeIntervalSince1970]];//@"1517468580"
+    //获取当前时间戳
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeSp = [NSString stringWithFormat:@"%.0f", time];
+    
     return timeSp;
 }
 #pragma mark --- 获取1小时之前的时间戳
@@ -207,7 +199,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     //得到小时之前的当前时间
     NSDate * lastTime = [date dateByAddingTimeInterval:-time];
     // 时间转换成时间戳
-    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[lastTime timeIntervalSince1970]];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[lastTime timeIntervalSince1970]*1000];
     return timeSp;
 
 }
@@ -232,6 +224,21 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     self.collectionView = collectionView;
 }
 
+#pragma mark --- 播放视频
+//- (void)setupToPlay{
+// 
+// NSURL *url = [NSURL URLWithString:self.playUrl];
+// 
+// MPMoviePlayerController *MPPlayer = [[MPMoviePlayerController alloc]initWithContentURL:url];
+// MPPlayer.view.hidden = YES;
+// [self.thumbImage addSubview:MPPlayer.view];
+// MPPlayer.view.frame = self.bounds;
+// self.MPPlayer = MPPlayer;
+// 
+// //准备播放
+// [self.MPPlayer prepareToPlay];
+// }
+ 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -291,9 +298,6 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     
     return NO;
 }
-
-
-
 
 #pragma mark -- 控制导航栏的显示与隐藏
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
