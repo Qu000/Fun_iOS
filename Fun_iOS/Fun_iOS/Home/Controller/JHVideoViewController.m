@@ -12,8 +12,6 @@
 
 #import "VideoItem.h"
 
-//#import <MediaPlayer/MediaPlayer.h>
-
 @interface JHVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -22,8 +20,7 @@
 @property (nonatomic, assign)NSInteger offset;
 /** layout*/
 @property (nonatomic, strong) customLayout * layout;
-/** 播放器*/
-//@property (nonatomic, strong) MPMoviePlayerController * MPPlayer;
+
 
 
 @end
@@ -288,16 +285,16 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 }
 
 
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    NSIndexPath *curIndexPath = [self curIndexPath];
-    if (indexPath.row == curIndexPath.row) {
-        return YES;
-    }
-    
-    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
-    
-    return NO;
-}
+//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+//    NSIndexPath *curIndexPath = [self curIndexPath];
+//    if (indexPath.row == curIndexPath.row) {
+//        return YES;
+//    }
+//
+//    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+//
+//    return NO;
+//}
 
 #pragma mark -- 控制导航栏的显示与隐藏
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		51061CDE20A2E2CA00A2D5E5 /* JHPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 51061CDD20A2E2CA00A2D5E5 /* JHPlayerVC.m */; };
 		5131D4182099B4FD00819589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5131D4172099B4FD00819589 /* Assets.xcassets */; };
 		5131D41B2099B4FD00819589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5131D4192099B4FD00819589 /* LaunchScreen.storyboard */; };
 		5131D4282099B4FD00819589 /* Fun_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4272099B4FD00819589 /* Fun_iOSTests.m */; };
@@ -50,8 +49,6 @@
 /* Begin PBXFileReference section */
 		105F1B2A76110E79485D230B /* Pods-Fun_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOSTests/Pods-Fun_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fun_iOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		51061CDC20A2E2CA00A2D5E5 /* JHPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPlayerVC.h; sourceTree = "<group>"; };
-		51061CDD20A2E2CA00A2D5E5 /* JHPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPlayerVC.m; sourceTree = "<group>"; };
 		5131D40B2099B4FB00819589 /* Fun_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fun_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5131D4172099B4FD00819589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5131D41A2099B4FD00819589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -223,8 +220,6 @@
 				51B51325209C36060086209F /* JHVideoCell.h */,
 				51B51326209C36060086209F /* JHVideoCell.m */,
 				51B51327209C36060086209F /* JHVideoCell.xib */,
-				51061CDC20A2E2CA00A2D5E5 /* JHPlayerVC.h */,
-				51061CDD20A2E2CA00A2D5E5 /* JHPlayerVC.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -554,7 +549,6 @@
 				51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */,
 				51B51328209C36060086209F /* JHVideoCell.m in Sources */,
 				5131D46F209AB32400819589 /* JHNavigationController.m in Sources */,
-				51061CDE20A2E2CA00A2D5E5 /* JHPlayerVC.m in Sources */,
 				51B51319209C30180086209F /* customLayout.m in Sources */,
 				5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */,
 				5131D472209AB32400819589 /* AppDelegate.m in Sources */,
