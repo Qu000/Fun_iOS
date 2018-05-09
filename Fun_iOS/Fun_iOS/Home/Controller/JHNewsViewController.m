@@ -48,7 +48,7 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     [self refreshTop];
 
     [self refreshDowm];
-    
+
     
 }
 
@@ -142,10 +142,8 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
      http://api.51touxiang.com/api/wuliao/getJoke?_ts=1525426116561&offset=16&time=1525407962000
      */
     NSString *timeSp = [self getNowTime];
-    //2018/5/9 7:9:16   2018/5/9 7:14:59  2018/5/4 17:28:36
-    //2018/5/8 17:9:32  2018/5/8 23:15:8  2018/5/4 12:26:2
     NSString *offsetStr = [NSString stringWithFormat:@"%ld",(long)self.offset];
-    NSString *oldTimeSp = [self getOldTime:self.offset];
+    NSString *oldTimeSp = [self getOldTime:self.offset];//@"1525811592000"
     //time字段，当前时间-1小时，转为时间戳
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     NSDictionary *paramer = @{@"_ts":timeSp,
@@ -167,13 +165,13 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
         [self.dataList addObjectsFromArray:oldData];
         
         
-        int i = (int)[self.dataList count]-1;
-        for(;i >= 0;i --){
-            //containsObject 判断元素是否存在于数组中(根据两者的内存地址判断，相同：YES  不同：NO）
-            if([oldData containsObject:[self.dataList objectAtIndex:i]]) {
-                [self.dataList removeObjectAtIndex:i];
-            }
-        }
+//        int i = (int)[self.dataList count]-1;
+//        for(;i >= 0;i --){
+//            //containsObject 判断元素是否存在于数组中(根据两者的内存地址判断，相同：YES  不同：NO）
+//            if([oldData containsObject:[self.dataList objectAtIndex:i]]) {
+//                [self.dataList removeObjectAtIndex:i];
+//            }
+//        }
         
         
         [self.collectionView reloadData];
@@ -188,14 +186,12 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
 }
 #pragma mark --- 获取当前时间戳
 - (NSString *)getNowTime{
-    // 获取时间（非本地时区，需转换）
-    NSDate * today = [NSDate date];
-    NSTimeZone *zone = [NSTimeZone systemTimeZone];
-    NSInteger interval = [zone secondsFromGMTForDate:today];
-    // 转换成当地时间
-    NSDate *localeDate = [today dateByAddingTimeInterval:interval];
-    // 时间转换成时间戳
-    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[localeDate timeIntervalSince1970]];//@"1517468580"
+    
+    //获取当前时间戳
+    NSDate* date = [NSDate dateWithTimeIntervalSinceNow:0];//获取当前时间0秒后的时间
+    NSTimeInterval time=[date timeIntervalSince1970]*1000;// *1000 是精确到毫秒，不乘就是精确到秒
+    NSString *timeSp = [NSString stringWithFormat:@"%.0f", time];
+    
     return timeSp;
 }
 
@@ -210,8 +206,9 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     NSTimeInterval time = hoursTime * 60 * 60;//小时的秒数
     //得到小时之前的当前时间
     NSDate * lastTime = [date dateByAddingTimeInterval:-time];
+    NSLog(@"lastTime=%@",lastTime);
     // 时间转换成时间戳
-    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[lastTime timeIntervalSince1970]];
+    NSString *timeSp = [NSString stringWithFormat:@"%ld",(long)[lastTime timeIntervalSince1970]*1000];
     return timeSp;
     
     //转化为字符串

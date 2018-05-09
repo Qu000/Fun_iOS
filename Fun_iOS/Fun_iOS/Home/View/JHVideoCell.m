@@ -232,7 +232,7 @@
 
 #pragma mark --- 时间戳转为时间串
 - (NSString *)getTimeToTimeStr:(NSInteger)nowTime{
-    CGFloat time = nowTime/1000;
+    CGFloat time = nowTime/1000.0;
     NSDate * detailDate = [NSDate dateWithTimeIntervalSince1970:time];
     //实例化一个NSDateFormatter对象
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
