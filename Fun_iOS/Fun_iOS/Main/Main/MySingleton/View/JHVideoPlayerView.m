@@ -11,7 +11,7 @@
 
 #import "NSString+Time.h"
 
-#import "JHVideoTool.h"
+//#import "JHVideoTool.h"
 #import "JHBrightnessAndVolumeView.h"
 #import "JHLoadingView.h"
 
@@ -29,7 +29,7 @@
 @end
 @implementation JHPreviewView
 
-// 单例
+// 单例？？这他二爷的就是单例！！
 static id _instance;
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
@@ -512,14 +512,19 @@ static id _instance;
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     AVPlayerItem *playItem = (AVPlayerItem *)object;
-    if ([keyPath isEqualToString:@"status"]) { // 检测播放器状态
+    
+    if ([keyPath isEqualToString:@"status"]) {
+        // 检测播放器状态
         AVPlayerStatus status = [[change objectForKey:@"new"] intValue];
-        if (status == AVPlayerStatusReadyToPlay) { // 达到能播放的状态
+        
+        if (status == AVPlayerStatusReadyToPlay) {
+            // 达到能播放的状态
             self.totalTimeLabel.text = [NSString stringWithTime:self.totalTime];
             self.progressSlider.maximumValue = self.totalTime;
             self.placeHolderView.image = nil;
             [self playOrPauseAction];
-        } else if (status == AVPlayerStatusFailed) { // 播放错误 资源不存在 网络问题等等
+        } else if (status == AVPlayerStatusFailed) {
+            // 播放错误 资源不存在 网络问题等等
             [self.waitingView stopAnimating];
             UILabel *busyLabel = [[UILabel alloc] init];
             busyLabel.font = [UIFont systemFontOfSize:13];
@@ -532,7 +537,8 @@ static id _instance;
                 make.center.width.equalTo(self);
                 make.height.mas_equalTo(30);
             }];
-        } else if (status == AVPlayerStatusUnknown) { // 未知错误
+        } else if (status == AVPlayerStatusUnknown) {
+            // 未知错误
             [self.waitingView stopAnimating];
             UILabel *errorLabel = [[UILabel alloc] init];
             errorLabel.font = [UIFont systemFontOfSize:13];
@@ -546,7 +552,8 @@ static id _instance;
                 make.height.mas_equalTo(30);
             }];
         }
-    } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) { // 检测缓存状态
+    } else if ([keyPath isEqualToString:@"loadedTimeRanges"]) {
+        // 检测缓存状态
         NSArray *loadedTimeRanges = [playItem loadedTimeRanges];
         CMTimeRange timeRange = [[loadedTimeRanges firstObject] CMTimeRangeValue];
         NSTimeInterval bufferingTime = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration);
@@ -554,23 +561,28 @@ static id _instance;
         if (bufferingTime >= CMTimeGetSeconds(playItem.currentTime) + 5.f) {
             [self.waitingView stopAnimating];
         }
-    } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {  // 缓存为空
+    } else if ([keyPath isEqualToString:@"playbackBufferEmpty"]) {
+        // 缓存为空
         if (playItem.playbackBufferEmpty) {
             [self.waitingView startAnimating];
         }
-    } else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) { // 缓存足够能播放
+    } else if ([keyPath isEqualToString:@"playbackLikelyToKeepUp"]) {
+        // 缓存足够能播放
         if (playItem.playbackLikelyToKeepUp) {
             [self.waitingView stopAnimating];
         }
     } else if ([keyPath isEqualToString:@"thumbImages"]) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            
             int imageIndex = (int)self.progressSlider.value / 10;
             if (imageIndex < self.thumbImages.count) {
                 self.previewView.image = self.thumbImages[imageIndex];
             }
         });
     } else if ([keyPath isEqualToString:@"rate"]) {
+        
         CGFloat rate = [[change objectForKey:@"new"] intValue];
+        
         if (rate == .0f) {
             self.placeHolderView.hidden = YES;
             [self.playBtn setImage:[UIImage imageNamed:@"Play"] forState:UIControlStateNormal];

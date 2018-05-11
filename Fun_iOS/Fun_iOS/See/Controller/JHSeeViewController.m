@@ -8,7 +8,7 @@
 
 #import "JHSeeViewController.h"
 #import "JHVideoPlayerView.h"
-#import "JHVideoTool.h"
+//#import "JHVideoTool.h"
 #import "VideoItem.h"
 
 @interface JHSeeViewController ()

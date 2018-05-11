@@ -8,5 +8,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (Time)
+
 + (NSString *)stringWithTime:(CGFloat)time;
+
 @end
