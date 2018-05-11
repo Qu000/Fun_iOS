@@ -19,6 +19,28 @@
 
 @implementation JHSeeViewController
 
+
+- (void)viewWillLayoutSubviews
+
+{
+    
+    [self shouldRotateToOrientation:(UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation];
+    
+}
+
+-(void)shouldRotateToOrientation:(UIDeviceOrientation)orientation {
+    if (orientation == UIDeviceOrientationPortrait ||orientation ==
+        UIDeviceOrientationPortraitUpsideDown) { // 竖屏
+        
+        self.navigationController.navigationBar.hidden = NO;
+        self.tabBarController.tabBar.hidden = NO;
+        
+    } else { // 横屏
+        self.navigationController.navigationBar.hidden = YES;
+        self.tabBarController.tabBar.hidden = YES;
+    }
+
+}
 -(NSMutableArray *)dataList{
     if (!_dataList) {
         _dataList = [[NSMutableArray alloc]init];

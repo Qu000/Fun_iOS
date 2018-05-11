@@ -283,6 +283,8 @@ static id _instance;
     [self.progressSlider addTarget:self action:@selector(progressDragEnd:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchCancel];
 }
 
+#pragma mark --- layoutSubviews
+
 - (void)layoutSubviews
 {
     [super layoutSubviews];
@@ -317,6 +319,7 @@ static id _instance;
     [self bringSubviewToFront:self.cover];
 }
 
+#pragma mark --- 传导Model数据源
 - (void)playWithVideoInfo:(VideoItem *)VideoInfo{
     
     
@@ -385,7 +388,7 @@ static id _instance;
     
 }
 
-// 创建播放器
+#pragma mark --- 创建播放器
 - (AVPlayer *)setupPlayer
 {
     AVPlayer *player = [[AVPlayer alloc] init];
@@ -395,7 +398,7 @@ static id _instance;
     return player;
 }
 
-// 重置播放器
+#pragma mark --- 重置播放器
 - (void)resetPlayer
 {
     [self.player pause];
@@ -415,7 +418,7 @@ static id _instance;
     self.player = nil;
 }
 
-// 添加亮度和音量调节View
+#pragma mark --- 添加亮度和音量调节View
 - (void)setupBrightnessAndVolumeView
 {
     JHBrightnessAndVolumeView *brightnessAndVolumeView = [JHBrightnessAndVolumeView sharedBrightnessAndAudioView];
@@ -444,7 +447,7 @@ static id _instance;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarStyle:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
-// 移除观察者和通知
+#pragma mark --- 移除观察者和通知
 - (void)removePlayItemObserverAndNotification
 {
     [self.playerItem removeObserver:self forKeyPath:@"status"];
@@ -496,7 +499,7 @@ static id _instance;
     [self removeGestureRecognizer:self.tapGesture];
 }
 
-// 播放完后重播
+#pragma mark --- 播放完后重播
 - (void)replay
 {
     [self.cover removeFromSuperview];
@@ -505,8 +508,7 @@ static id _instance;
     [self.player play];
     [self addGesture];
 }
-
-// KVO检测播放器各种状态
+#pragma mark --- KVO检测播放器各种状态
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
 {
     AVPlayerItem *playItem = (AVPlayerItem *)object;
@@ -581,7 +583,7 @@ static id _instance;
     }
 }
 
-// 横竖屏适配
+#pragma mark --- 横竖屏适配
 - (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
 {
     [super traitCollectionDidChange:previousTraitCollection];
@@ -726,7 +728,7 @@ static id _instance;
     }];
 }
 
-// 获取AVURLAsset的任意一帧图片
+#pragma mark --- 获取AVURLAsset的任意一帧图片
 - (UIImage *)thumbImageForVideo:(NSURL *)videoURL atTime:(NSTimeInterval)time {
     [self.imageGenerator cancelAllCGImageGeneration];
     self.imageGenerator.appliesPreferredTrackTransform = YES;
@@ -917,6 +919,7 @@ static id _instance;
     }
 }
 
+#pragma mark --- delloc
 - (void)dealloc
 {
     [self removePlayItemObserverAndNotification];
