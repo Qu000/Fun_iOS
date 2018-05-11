@@ -32,6 +32,12 @@
 		51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B5132E209C3F960086209F /* JHVideoViewController.m */; };
 		51B51338209C659A0086209F /* VideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51332209C65990086209F /* VideoItem.m */; };
 		51B51339209C659A0086209F /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51336209C659A0086209F /* Video.m */; };
+		51CDF37320A53E7900E8847E /* JHVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37220A53E7900E8847E /* JHVideoTool.m */; };
+		51CDF37620A5404600E8847E /* JHVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37520A5404600E8847E /* JHVideoPlayerView.m */; };
+		51CDF37820A5408300E8847E /* JHVideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51CDF37720A5408300E8847E /* JHVideoPlayerView.xib */; };
+		51CDF37B20A54C1300E8847E /* NSString+Time.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37A20A54C1300E8847E /* NSString+Time.m */; };
+		51CDF38020A54D4000E8847E /* JHBrightnessAndVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37C20A54D3F00E8847E /* JHBrightnessAndVolumeView.m */; };
+		51CDF38120A54D4000E8847E /* JHLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37D20A54D4000E8847E /* JHLoadingView.m */; };
 		96F9BC0B4351DB9CF870D09A /* libPods-Fun_iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */; };
 		AB1EA948E4A567F8E62DDEE6 /* libPods-Fun_iOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */; };
 /* End PBXBuildFile section */
@@ -99,6 +105,17 @@
 		51B51334209C65990086209F /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		51B51335209C659A0086209F /* VideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoItem.h; sourceTree = "<group>"; };
 		51B51336209C659A0086209F /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		51CDF37120A53E7900E8847E /* JHVideoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoTool.h; sourceTree = "<group>"; };
+		51CDF37220A53E7900E8847E /* JHVideoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoTool.m; sourceTree = "<group>"; };
+		51CDF37420A5404600E8847E /* JHVideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoPlayerView.h; sourceTree = "<group>"; };
+		51CDF37520A5404600E8847E /* JHVideoPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoPlayerView.m; sourceTree = "<group>"; };
+		51CDF37720A5408300E8847E /* JHVideoPlayerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHVideoPlayerView.xib; sourceTree = "<group>"; };
+		51CDF37920A54C1300E8847E /* NSString+Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Time.h"; sourceTree = "<group>"; };
+		51CDF37A20A54C1300E8847E /* NSString+Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Time.m"; sourceTree = "<group>"; };
+		51CDF37C20A54D3F00E8847E /* JHBrightnessAndVolumeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHBrightnessAndVolumeView.m; sourceTree = "<group>"; };
+		51CDF37D20A54D4000E8847E /* JHLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHLoadingView.m; sourceTree = "<group>"; };
+		51CDF37E20A54D4000E8847E /* JHBrightnessAndVolumeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHBrightnessAndVolumeView.h; sourceTree = "<group>"; };
+		51CDF37F20A54D4000E8847E /* JHLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHLoadingView.h; sourceTree = "<group>"; };
 		601C4DA65ACDF02CA482A0BB /* Pods-Fun_iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOS/Pods-Fun_iOS.release.xcconfig"; sourceTree = "<group>"; };
 		64CFC31A9210D757CC8CCF84 /* libPods-Fun_iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fun_iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		82037E229A873C33EB50AB51 /* Pods-Fun_iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOSTests/Pods-Fun_iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -305,6 +322,8 @@
 		5131D461209AB32400819589 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				51CDF37920A54C1300E8847E /* NSString+Time.h */,
+				51CDF37A20A54C1300E8847E /* NSString+Time.m */,
 				5131D473209AB3A300819589 /* UIView+JHExtension.h */,
 				5131D474209AB3A300819589 /* UIView+JHExtension.m */,
 			);
@@ -338,6 +357,7 @@
 		5131D469209AB32400819589 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				51CDF36E20A53E4000E8847E /* MySingleton */,
 				5131D46A209AB32400819589 /* AppDelegate.h */,
 				5131D46D209AB32400819589 /* AppDelegate.m */,
 				5131D46C209AB32400819589 /* main.m */,
@@ -366,6 +386,38 @@
 				518D0286209FFB7A006D30E7 /* NiceComment.m */,
 			);
 			path = DuanziModel;
+			sourceTree = "<group>";
+		};
+		51CDF36E20A53E4000E8847E /* MySingleton */ = {
+			isa = PBXGroup;
+			children = (
+				51CDF37020A53E4000E8847E /* Tool */,
+				51CDF36F20A53E4000E8847E /* View */,
+			);
+			path = MySingleton;
+			sourceTree = "<group>";
+		};
+		51CDF36F20A53E4000E8847E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51CDF37420A5404600E8847E /* JHVideoPlayerView.h */,
+				51CDF37520A5404600E8847E /* JHVideoPlayerView.m */,
+				51CDF37720A5408300E8847E /* JHVideoPlayerView.xib */,
+				51CDF37E20A54D4000E8847E /* JHBrightnessAndVolumeView.h */,
+				51CDF37C20A54D3F00E8847E /* JHBrightnessAndVolumeView.m */,
+				51CDF37F20A54D4000E8847E /* JHLoadingView.h */,
+				51CDF37D20A54D4000E8847E /* JHLoadingView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51CDF37020A53E4000E8847E /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				51CDF37120A53E7900E8847E /* JHVideoTool.h */,
+				51CDF37220A53E7900E8847E /* JHVideoTool.m */,
+			);
+			path = Tool;
 			sourceTree = "<group>";
 		};
 		D567556795B4874F5A175590 /* Pods */ = {
@@ -464,6 +516,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5131D470209AB32400819589 /* Main.storyboard in Resources */,
+				51CDF37820A5408300E8847E /* JHVideoPlayerView.xib in Resources */,
 				5131D41B2099B4FD00819589 /* LaunchScreen.storyboard in Resources */,
 				51B51324209C358E0086209F /* JHNewsCell.xib in Resources */,
 				5131D4182099B4FD00819589 /* Assets.xcassets in Resources */,
@@ -545,20 +598,25 @@
 				518D0288209FFB7A006D30E7 /* NiceComment.m in Sources */,
 				51B51338209C659A0086209F /* VideoItem.m in Sources */,
 				5131D4522099C00100819589 /* JHSeeViewController.m in Sources */,
+				51CDF38120A54D4000E8847E /* JHLoadingView.m in Sources */,
 				51B51339209C659A0086209F /* Video.m in Sources */,
+				51CDF37620A5404600E8847E /* JHVideoPlayerView.m in Sources */,
 				51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */,
 				51B51328209C36060086209F /* JHVideoCell.m in Sources */,
 				5131D46F209AB32400819589 /* JHNavigationController.m in Sources */,
+				51CDF37320A53E7900E8847E /* JHVideoTool.m in Sources */,
 				51B51319209C30180086209F /* customLayout.m in Sources */,
 				5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */,
 				5131D472209AB32400819589 /* AppDelegate.m in Sources */,
 				5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */,
 				5131D45F209AADD000819589 /* JHHomeTopView.m in Sources */,
+				51CDF37B20A54C1300E8847E /* NSString+Time.m in Sources */,
 				51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */,
 				518D0287209FFB7A006D30E7 /* DuanziItem.m in Sources */,
 				5131D471209AB32400819589 /* main.m in Sources */,
 				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
 				51B51323209C358E0086209F /* JHNewsCell.m in Sources */,
+				51CDF38020A54D4000E8847E /* JHBrightnessAndVolumeView.m in Sources */,
 				5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */,
 				518D028D20A04E16006D30E7 /* UIImageView+SDWebImage.m in Sources */,
 			);

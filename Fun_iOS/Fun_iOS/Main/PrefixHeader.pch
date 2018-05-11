@@ -17,4 +17,5 @@
 #import "SDWebImageManager.h"
 #import "UIImageView+SDWebImage.h"
 #import "MJRefresh.h"
+#import "Masonry.h"
 #endif /* PrefixHeader_pch */

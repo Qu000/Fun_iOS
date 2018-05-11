@@ -71,7 +71,7 @@
     self.playImage = playImage;
     //playBtn
     UIButton *playerBtn = [[UIButton alloc]init];
-    [playerBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+    [playerBtn setImage:[UIImage imageNamed:@"player_start_iphone_fullscreen"] forState:UIControlStateNormal];
     [playerBtn setBackgroundColor:[UIColor clearColor]];
     [playerBtn addTarget:self action:@selector(clickToPlay:) forControlEvents:UIControlEventTouchUpInside];
     [self.MPPlayer.view addSubview:playerBtn];
@@ -196,7 +196,7 @@
     self.thumbView.frame = CGRectMake(0, CGRectGetMaxY(self.shareLab.frame), self.thumbW, self.thumbH);
     self.MPPlayer.view.frame = self.thumbView.frame;
     self.playImage.frame = self.thumbView.frame;
-    self.playBtn.frame = CGRectMake(self.MPPlayer.view.centerX, self.MPPlayer.view.centerY, 50, 50);
+    self.playBtn.frame = CGRectMake(self.MPPlayer.view.centerX-25, self.MPPlayer.view.centerY-25, 50, 50);
 //    self.playBtn.frame = self.thumbImage.frame;
     
 //    300/4=75
