@@ -19,16 +19,15 @@
 
 @implementation JHSeeViewController
 
-
-- (void)viewWillLayoutSubviews
-
-{
+#pragma mark --- 横屏竖屏检测
+- (void)viewWillLayoutSubviews{
     
     [self shouldRotateToOrientation:(UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation];
     
 }
 
 -(void)shouldRotateToOrientation:(UIDeviceOrientation)orientation {
+    
     if (orientation == UIDeviceOrientationPortrait ||orientation ==
         UIDeviceOrientationPortraitUpsideDown) { // 竖屏
         
@@ -36,11 +35,16 @@
         self.tabBarController.tabBar.hidden = NO;
         
     } else { // 横屏
+        
         self.navigationController.navigationBar.hidden = YES;
         self.tabBarController.tabBar.hidden = YES;
+        
     }
 
 }
+
+
+
 -(NSMutableArray *)dataList{
     if (!_dataList) {
         _dataList = [[NSMutableArray alloc]init];
@@ -56,7 +60,7 @@
     
 }
 
-// 初始化播放器View
+#pragma mark --- 初始化播放器View
 - (void)setupPlayerView
 {
     JHVideoPlayerView *playerView = [[[NSBundle mainBundle] loadNibNamed:@"JHVideoPlayerView" owner:nil options:nil] lastObject];
