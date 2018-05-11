@@ -447,16 +447,7 @@ static id _instance;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeStatusBarStyle:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
 
-#pragma mark --- 移除观察者和通知
-- (void)removePlayItemObserverAndNotification
-{
-    [self.playerItem removeObserver:self forKeyPath:@"status"];
-    [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
-    [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
-    [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
-    [self.player removeObserver:self forKeyPath:@"rate"];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
 
 // 给进度条Slider添加时间OB
 - (void)addTimerObserver
@@ -929,6 +920,17 @@ static id _instance;
     } else {
         [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;
     }
+}
+
+#pragma mark --- 移除观察者和通知
+- (void)removePlayItemObserverAndNotification
+{
+    [self.playerItem removeObserver:self forKeyPath:@"status"];
+    [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+    [self.player removeObserver:self forKeyPath:@"rate"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 #pragma mark --- delloc
