@@ -187,15 +187,17 @@ static id _instance;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
 
+
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreBtn;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic, assign, getter=isLandscape) BOOL landscape;
 @property (nonatomic, assign, getter=controlPanelIsShowing) BOOL controlPanelShow;
 @property (nonatomic, weak) UIView *cover;
 @property (nonatomic, weak) UIButton *episodeCover;
 @property (nonatomic, weak) UIButton *replayBtn;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewTopConstraint;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewBottomConstaint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *rotateBtnLeadingConstraint;
@@ -344,7 +346,7 @@ static id _instance;
     self.player = [self setupPlayer];
     
     // 设置播放器标题
-//    self.titleLabel.text = VideoInfo.title;
+    self.titleLabel.text = VideoInfo.content;
     self.placeHolderView.hidden = NO;
     [self.placeHolderView downloadImage:VideoInfo.videoModel.thumbUrl placeholder:@"placeHolderHead"];
     [self.waitingView startAnimating];
@@ -592,8 +594,8 @@ static id _instance;
         }];
         self.episodeBtn.hidden = YES;
         [self.rotateBtn setImage:[UIImage imageNamed:@"player_fullScreen_iphone"] forState:UIControlStateNormal];
-        self.topViewHeightConstraint.constant = 40;
-        self.rotateBtnLeadingConstraint.constant = 5;
+//        self.topViewHeightConstraint.constant = 40;
+//        self.rotateBtnLeadingConstraint.constant = 5;
         self.landscape = NO;
     } else if (self.traitCollection.verticalSizeClass == UIUserInterfaceSizeClassCompact) { // 转至横屏
         [self mas_remakeConstraints:^(MASConstraintMaker *make) {
@@ -601,8 +603,8 @@ static id _instance;
         }];
         self.episodeBtn.hidden = NO;
         [self.rotateBtn setImage:[UIImage imageNamed:@"player_window_iphone"] forState:UIControlStateNormal];
-        self.topViewHeightConstraint.constant = 60;
-        self.rotateBtnLeadingConstraint.constant = 50;
+//        self.topViewHeightConstraint.constant = 60;
+//        self.rotateBtnLeadingConstraint.constant = 50;
         self.landscape = YES;
     }
 }
@@ -773,6 +775,7 @@ static id _instance;
     cell.textLabel.font = [UIFont systemFontOfSize:13];
     cell.textLabel.textAlignment = NSTextAlignmentLeft;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = videoInfo.content;
     
     return cell;
 }
@@ -866,9 +869,9 @@ static id _instance;
 - (void)showControlPanel
 {
     self.controlPanelShow = YES;
-    self.topViewTopConstraint.constant = 0;
+//    self.topViewTopConstraint.constant = 0;
     self.topView.alpha = 1.f;
-    self.bottomViewBottomConstaint.constant = 0;
+//    self.bottomViewBottomConstaint.constant = 0;
     self.bottomView.alpha = 1.f;
 }
 
@@ -876,9 +879,9 @@ static id _instance;
 - (void)hideControlPanel
 {
     self.controlPanelShow = NO;
-    self.topViewTopConstraint.constant = -self.topView.bounds.size.height;
+//    self.topViewTopConstraint.constant = -self.topView.bounds.size.height;
     self.topView.alpha = .0f;
-    self.bottomViewBottomConstaint.constant = -self.bottomView.bounds.size.height;
+//    self.bottomViewBottomConstaint.constant = -self.bottomView.bounds.size.height;
     self.bottomView.alpha = .0f;
 }
 
