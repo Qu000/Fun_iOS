@@ -13,6 +13,13 @@
 
 @interface JHSeeViewController ()
 
+/** tableView*/
+@property (nonatomic, strong) UITableView *tableView;
+
+/**
+ * 数据源
+ * 需要将该数据源传至播放器里
+ */
 @property (nonatomic, strong) NSMutableArray * dataList;
 
 @end
