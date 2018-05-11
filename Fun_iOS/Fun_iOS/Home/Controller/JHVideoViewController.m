@@ -190,7 +190,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     NSDate * date = [NSDate date];
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    //设置时间间隔（秒）（这个我是计算出来的，不知道有没有简便的方法 )
+    //设置时间间隔（秒）
     NSInteger hoursTime = hours/8;
     NSTimeInterval time = hoursTime * 60 * 60;//小时的秒数
     //得到小时之前的当前时间
@@ -222,19 +222,7 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 }
 
 #pragma mark --- 播放视频
-//- (void)setupToPlay{
-// 
-// NSURL *url = [NSURL URLWithString:self.playUrl];
-// 
-// MPMoviePlayerController *MPPlayer = [[MPMoviePlayerController alloc]initWithContentURL:url];
-// MPPlayer.view.hidden = YES;
-// [self.thumbImage addSubview:MPPlayer.view];
-// MPPlayer.view.frame = self.bounds;
-// self.MPPlayer = MPPlayer;
-// 
-// //准备播放
-// [self.MPPlayer prepareToPlay];
-// }
+
  
 #pragma mark <UICollectionViewDataSource>
 
@@ -251,12 +239,23 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+
     
     JHVideoCell *cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    // 判断为空进行初始化  --（当拉动页面显示超过主页面内容的时候就会重用之前的cell，而不会再次初始化）
+    if (!cell) {
+        cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    }else{
+        //当页面拉动的时候 当cell存在并且最后一个存在 把它进行删除就出来一个独特的cell我们在进行数据配置即可避免
+        while ([cell.contentView.subviews lastObject] != nil) {
+            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
+        }
+    }
+    
     cell.model = self.dataList[indexPath.row];
     cell.layer.cornerRadius = 20;
     cell.layer.masksToBounds = YES;
-    
+
     cell.block = ^(NSInteger itemH) {
         self.layout.itemSize = CGSizeMake(350, itemH);
     };
@@ -285,17 +284,19 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 }
 
 
-//- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-//    NSIndexPath *curIndexPath = [self curIndexPath];
-//    if (indexPath.row == curIndexPath.row) {
-//        return YES;
-//    }
-//
-//    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
-//
-//    return NO;
-//}
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSIndexPath *curIndexPath = [self curIndexPath];
+    if (indexPath.row == curIndexPath.row) {
+        return YES;
+    }
 
+    [self.collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionNone animated:YES];
+
+    return NO;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"indexPath.row=%ld",(long)indexPath.row);
+}
 #pragma mark -- 控制导航栏的显示与隐藏
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     
@@ -319,4 +320,34 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
         //停止拖拽
     }
 }
+
+/*
+ JHVideoCell *cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+ // 判断为空进行初始化  --（当拉动页面显示超过主页面内容的时候就会重用之前的cell，而不会再次初始化）
+ if (!cell) {
+ cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+ }else{
+ //当页面拉动的时候 当cell存在并且最后一个存在 把它进行删除就出来一个独特的cell我们在进行数据配置即可避免
+ while ([cell.contentView.subviews lastObject] != nil) {
+ [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
+ }
+ }
+ cell.model = self.dataList[indexPath.row];
+ cell.layer.cornerRadius = 20;
+ cell.layer.masksToBounds = YES;
+ 
+ cell.block = ^(NSInteger itemH) {
+ self.layout.itemSize = CGSizeMake(350, itemH);
+ };
+ return cell;
+ */
+/*
+ 
+ // 通过indexPath创建cell实例 每一个cell都是单独的
+ JHVideoCell *cell = (JHVideoCell *)[collectionView cellForItemAtIndexPath:indexPath];
+ // 判断为空进行初始化  --（当拉动页面显示超过主页面内容的时候就会重用之前的cell，而不会再次初始化）
+ if (!cell) {
+ cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+ }
+ */
 @end

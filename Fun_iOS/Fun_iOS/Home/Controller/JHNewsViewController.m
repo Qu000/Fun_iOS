@@ -294,6 +294,9 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     
     return NO;
 }
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"indexPath.row=%ld",(long)indexPath.row);
+}
 
 #pragma mark -- 控制导航栏的显示与隐藏
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
