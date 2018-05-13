@@ -11,7 +11,9 @@
 //#import "JHVideoTool.h"
 #import "VideoItem.h"
 
-@interface JHSeeViewController ()
+@interface JHSeeViewController ()<UITableViewDelegate,UITableViewDataSource>
+/** 播放器*/
+@property (nonatomic, strong) JHVideoPlayerView * videoPlayer;
 
 /** tableView*/
 @property (nonatomic, strong) UITableView *tableView;
@@ -75,6 +77,15 @@
     [self.view addSubview:playerView];
     VideoItem *videoInfos = [self.dataList firstObject];
     [playerView playWithVideoInfo:videoInfos];
+    self.videoPlayer = playerView;
+    
+    CGFloat tableViewH = SCREEN_HEIGHT - playerView.height - 64 - 49;
+    UITableView *tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(playerView.frame), SCREEN_WIDTH, tableViewH)];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
+    self.tableView = tableView;
+
 }
 
 #pragma mark --- 获取数据
@@ -115,6 +126,64 @@
     
     return timeSp;
 }
+
+#pragma mark - UITableView DataSource 实现数据源方法
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataList.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"videoInfo";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    cell.backgroundColor = JHRGB(136, 73, 253);
+    
+    VideoItem *videoInfo = self.dataList[indexPath.row];
+    videoInfo.videoModel = [Video mj_objectWithKeyValues:videoInfo.videos.firstObject];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *currentPlayingUrl = [defaults objectForKey:@"currentPlayingUrl"];
+    if ([currentPlayingUrl isEqualToString:videoInfo.videoModel.url]) {
+        cell.textLabel.textColor = [UIColor orangeColor];
+    } else {
+        cell.textLabel.textColor = [UIColor whiteColor];
+    }
+    cell.textLabel.font = [UIFont systemFontOfSize:13];
+    cell.textLabel.textAlignment = NSTextAlignmentLeft;
+    cell.textLabel.numberOfLines = 0;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text = videoInfo.content;
+    
+//    cell.imageView.layer.cornerRadius = 25;
+//    cell.imageView.layer.masksToBounds = YES;
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell.imageView downloadImage:videoInfo.videoModel.thumbUrl placeholder:@"placeHolderHead"];
+    
+    return cell;
+}
+
+#pragma mark - UITableView Delegate 实现代理方法
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [self.videoPlayer.player pause];
+    
+    VideoItem *videoInfo = self.dataList[indexPath.row];
+    
+    [self.videoPlayer playWithVideoInfo:videoInfo];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

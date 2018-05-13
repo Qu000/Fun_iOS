@@ -7,7 +7,6 @@
 //
 
 #import "JHVideoPlayerView.h"
-#import <AVFoundation/AVFoundation.h>
 
 #import "NSString+Time.h"
 
@@ -167,7 +166,7 @@ static id _instance;
 
 @interface JHVideoPlayerView() <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) AVPlayer *player;
+
 @property (nonatomic, strong) AVPlayerItem *playerItem;
 @property (nonatomic, strong) AVURLAsset *asset;
 @property (nonatomic, strong) AVPlayerLayer *playerLayer;
@@ -186,7 +185,7 @@ static id _instance;
 @property (weak, nonatomic) IBOutlet UIButton *episodeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *currentTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalTimeLabel;
-
+@property (nonatomic, weak) UIButton *episodeCover;
 
 @property (weak, nonatomic) IBOutlet UIView *topView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *moreBtn;
@@ -194,8 +193,9 @@ static id _instance;
 
 @property (nonatomic, assign, getter=isLandscape) BOOL landscape;
 @property (nonatomic, assign, getter=controlPanelIsShowing) BOOL controlPanelShow;
+///遮罩视图
 @property (nonatomic, weak) UIView *cover;
-@property (nonatomic, weak) UIButton *episodeCover;
+
 @property (nonatomic, weak) UIButton *replayBtn;
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewTopConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewBottomConstaint;

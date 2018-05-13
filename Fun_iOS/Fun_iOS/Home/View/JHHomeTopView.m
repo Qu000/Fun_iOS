@@ -7,23 +7,35 @@
 //
 
 #import "JHHomeTopView.h"
+#import "Wave.h"
 
 @interface JHHomeTopView()
 /** topView的按钮 */
 @property (nonatomic, strong) NSMutableArray * buttons;
 /** topView按钮下的线条 */
-@property (nonatomic, strong)UIView *lineView;
+@property (nonatomic, strong) UIView *lineView;
 
+/** 波浪特效*/
+@property (nonatomic, strong) Wave * waveView;
 @end
 @implementation JHHomeTopView
 
 -(NSArray *)buttons{
     if (!_buttons) {
         _buttons = [NSMutableArray array];
+        [_waveView startWaveAnimation];
     }
     return _buttons;
 }
 
+-(Wave *)waveView{
+    if (!_waveView) {
+        _waveView = [[Wave alloc]initWithFrame:self.bounds];
+        _waveView.backgroundColor = JHRGB(249, 227, 228);
+        [self addSubview:_waveView];
+    }
+    return _waveView;
+}
 
 -(instancetype)initWithFrame:(CGRect)frame titleNames:(NSArray *)titles{
     self = [super initWithFrame:frame];
@@ -37,7 +49,9 @@
             NSString * vcTitle = titles[i];
             [button setTitle:vcTitle forState:UIControlStateNormal];
             
-            [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [button setTitleColor:JHRGB(40, 40, 40) forState:UIControlStateNormal];
+            
+            [button setTitleColor:JHRGB(254, 142, 153) forState:UIControlStateSelected];
             
             button.titleLabel.font = [UIFont systemFontOfSize:18];
             
@@ -47,7 +61,7 @@
             
             button.tag = i;//设置block的回传
             
-            [self addSubview:button];
+            [self.waveView addSubview:button];
             
             [self.buttons addObject:button];
             if (i == 1) {
@@ -57,12 +71,12 @@
                 [button.titleLabel sizeToFit];
                 
                 self.lineView = [[UIView alloc]init];
-                self.lineView.backgroundColor = [UIColor whiteColor];
+                self.lineView.backgroundColor = [UIColor blackColor];
                 self.lineView.height = h;
                 self.lineView.width = button.titleLabel.width;
                 self.lineView.top = y;
                 self.lineView.centerX = button.centerX;
-                [self addSubview:self.lineView];
+                [self.waveView addSubview:self.lineView];
             }
             
         }
@@ -81,11 +95,43 @@
 -(void)scrolling:(NSInteger)index{
     
     UIButton *button = self.buttons[index];
-    
+    switch (button.tag) {
+        case 0:
+        {
+            button.selected = YES;
+            UIButton *button2 = self.buttons[index+1];
+            button2.selected = NO;
+            UIButton *button3 = self.buttons[index+2];
+            button3.selected = NO;
+        }
+            break;
+        case 1:
+        {
+            UIButton *button2 = self.buttons[index-1];
+            button2.selected = NO;
+            button.selected = YES;
+            UIButton *button3 = self.buttons[index+1];
+            button3.selected = NO;
+        }
+            break;
+        case 2:
+        {
+            UIButton *button2 = self.buttons[index-2];
+            button2.selected = NO;
+            UIButton *button3 = self.buttons[index-1];
+            button3.selected = NO;
+            button.selected = YES;
+        }
+            break;
+        default:
+            break;
+    }
+
     [UIView animateWithDuration:0.2 animations:^{
         self.lineView.centerX = button.centerX;
     } completion:^(BOOL finished) {
 //        NSLog(@"切换到->%@",button.titleLabel.text);
+        
     }];
 }
 

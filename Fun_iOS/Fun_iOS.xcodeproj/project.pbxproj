@@ -32,6 +32,8 @@
 		51B5132F209C3F960086209F /* JHVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B5132E209C3F960086209F /* JHVideoViewController.m */; };
 		51B51338209C659A0086209F /* VideoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51332209C65990086209F /* VideoItem.m */; };
 		51B51339209C659A0086209F /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51336209C659A0086209F /* Video.m */; };
+		51CB53F420A812BF00F15D7C /* Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB53F320A812BF00F15D7C /* Wave.m */; };
+		51CB53F720A816B900F15D7C /* JHPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB53F620A816B900F15D7C /* JHPicViewController.m */; };
 		51CDF37320A53E7900E8847E /* JHVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37220A53E7900E8847E /* JHVideoTool.m */; };
 		51CDF37620A5404600E8847E /* JHVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37520A5404600E8847E /* JHVideoPlayerView.m */; };
 		51CDF37820A5408300E8847E /* JHVideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51CDF37720A5408300E8847E /* JHVideoPlayerView.xib */; };
@@ -105,6 +107,10 @@
 		51B51334209C65990086209F /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		51B51335209C659A0086209F /* VideoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoItem.h; sourceTree = "<group>"; };
 		51B51336209C659A0086209F /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		51CB53F220A812BF00F15D7C /* Wave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wave.h; sourceTree = "<group>"; };
+		51CB53F320A812BF00F15D7C /* Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wave.m; sourceTree = "<group>"; };
+		51CB53F520A816B900F15D7C /* JHPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPicViewController.h; sourceTree = "<group>"; };
+		51CB53F620A816B900F15D7C /* JHPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPicViewController.m; sourceTree = "<group>"; };
 		51CDF37120A53E7900E8847E /* JHVideoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoTool.h; sourceTree = "<group>"; };
 		51CDF37220A53E7900E8847E /* JHVideoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoTool.m; sourceTree = "<group>"; };
 		51CDF37420A5404600E8847E /* JHVideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoPlayerView.h; sourceTree = "<group>"; };
@@ -213,6 +219,8 @@
 				51B5132B209C3F860086209F /* JHNewsViewController.m */,
 				51B5132D209C3F960086209F /* JHVideoViewController.h */,
 				51B5132E209C3F960086209F /* JHVideoViewController.m */,
+				51CB53F520A816B900F15D7C /* JHPicViewController.h */,
+				51CB53F620A816B900F15D7C /* JHPicViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -344,6 +352,8 @@
 		5131D467209AB32400819589 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				51CB53F220A812BF00F15D7C /* Wave.h */,
+				51CB53F320A812BF00F15D7C /* Wave.m */,
 				51B51317209C30170086209F /* customLayout.h */,
 				51B51318209C30180086209F /* customLayout.m */,
 				5131D468209AB32400819589 /* Macros.h */,
@@ -595,6 +605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51CB53F420A812BF00F15D7C /* Wave.m in Sources */,
 				518D0288209FFB7A006D30E7 /* NiceComment.m in Sources */,
 				51B51338209C659A0086209F /* VideoItem.m in Sources */,
 				5131D4522099C00100819589 /* JHSeeViewController.m in Sources */,
@@ -615,6 +626,7 @@
 				518D0287209FFB7A006D30E7 /* DuanziItem.m in Sources */,
 				5131D471209AB32400819589 /* main.m in Sources */,
 				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
+				51CB53F720A816B900F15D7C /* JHPicViewController.m in Sources */,
 				51B51323209C358E0086209F /* JHNewsCell.m in Sources */,
 				51CDF38020A54D4000E8847E /* JHBrightnessAndVolumeView.m in Sources */,
 				5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */,

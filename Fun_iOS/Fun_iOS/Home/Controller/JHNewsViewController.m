@@ -201,7 +201,7 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     NSDate * date = [NSDate date];
     NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    //设置时间间隔（秒）（这个我是计算出来的，不知道有没有简便的方法 )
+    //设置时间间隔（秒）
     NSInteger hoursTime = hours/8;
     NSTimeInterval time = hoursTime * 60 * 60;//小时的秒数
     //得到小时之前的当前时间
