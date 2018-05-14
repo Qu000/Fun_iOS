@@ -23,9 +23,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *spContentLab;
 @property (weak, nonatomic) IBOutlet UIButton *spPraiseBtn;
 
-@property (weak, nonatomic) IBOutlet UIStackView *SPStackView;
-@property (weak, nonatomic) IBOutlet UIView *SPContentView;
-
+@property (weak, nonatomic) IBOutlet UIStackView *stackView;
+@property (weak, nonatomic) IBOutlet UIView *spView;
 @end
 
 @implementation JHNewsCell
@@ -46,25 +45,38 @@
     
     model.niceModel = [NiceComment mj_objectWithKeyValues:model.niceComments.firstObject];
 //    NSLog(@"userName=%@",model.niceModel.userName);
-    if (model.niceModel.userName) {
-        [self.spHeadImage downloadImage:model.niceModel.avatar placeholder:@"placeHolderHead"];
-        self.SPStackView.hidden = NO;
+    if (model.niceModel.content) {
+        [self.spHeadImage sd_setImageWithURL:[NSURL URLWithString:model.niceModel.avatar] placeholderImage:[UIImage imageNamed:@"placeHolderHead"]];
+        
+        self.spView.hidden = NO;
     }else{
-        self.SPStackView.hidden = YES;
+        
+        self.spView.hidden = YES;
     }
     
     self.spNickNameLab.text = model.niceModel.userName;
     self.spContentLab.text = model.niceModel.content;
     [self.spPraiseBtn setTitle:[NSString stringWithFormat:@"  %@",[self changeNumberToStr:model.niceModel.praise]] forState:UIControlStateNormal];
     
-    self.SPContentView.layer.cornerRadius = 14;
-    self.SPContentView.layer.masksToBounds = YES;
     
-    self.spHeadImage.layer.cornerRadius = 25;
+    self.spHeadImage.layer.cornerRadius = 18;//36WH
     self.spHeadImage.layer.masksToBounds = YES;
     
 }
 
+-(void)layoutSubviews{
+    if (self.spView.isHidden) {
+        
+        CGFloat cellH = CGRectGetMaxY(self.stackView.frame)+10;
+        self.block(cellH);
+        
+    }else{
+        
+        CGFloat cellH = CGRectGetMaxY(self.spView.frame)+10;
+        self.block(cellH);
+        
+    }
+}
 
 - (void)awakeFromNib {
     [super awakeFromNib];

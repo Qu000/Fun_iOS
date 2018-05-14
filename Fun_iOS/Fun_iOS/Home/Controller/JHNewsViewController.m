@@ -19,6 +19,10 @@
 @property (nonatomic, strong)NSMutableArray * tempArr;
 @property (nonatomic, assign)NSInteger offset;
 
+/** layout*/
+@property (nonatomic, strong) customLayout * layout;
+//@property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+
 @end
 
 @implementation JHNewsViewController
@@ -216,18 +220,30 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
 }
 
 - (void)setupCollectionDefault{
+   
+    customLayout *layout = [[customLayout alloc]initWithType:LayoutTypeNormal];
+    layout.itemSize = CGSizeMake(300, 350);
+    self.layout = layout;
     
-//    self.view.backgroundColor = [UIColor purpleColor];
-    
-    customLayout *layout = [[customLayout alloc]initWithType:LayoutTypeCoverFlow];
-    layout.itemSize = CGSizeMake(350, 350);
-
-    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:layout];
+//    UICollectionViewFlowLayout *layoutNormal = [[UICollectionViewFlowLayout alloc]init];
+//    layoutNormal.scrollDirection = UICollectionViewScrollDirectionVertical;
+//    layoutNormal.itemSize = CGSizeMake(100, 100);
+//    self.layout = layoutNormal;
+    UICollectionView *collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, self.view.bounds.size.height) collectionViewLayout:self.layout];
     
     collectionView.showsHorizontalScrollIndicator = NO;
     collectionView.showsVerticalScrollIndicator = NO;
     [collectionView registerNib:[UINib nibWithNibName:NSStringFromClass([JHNewsCell class]) bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
-    collectionView.backgroundColor = [UIColor whiteColor];
+    
+    UIView *bgView = [[UIView alloc]init];
+    [collectionView addSubview:bgView];
+    bgView.frame = collectionView.frame;
+    UIImageView *bgImage = [[UIImageView alloc]init];
+    bgImage.frame = self.view.frame;
+    [bgImage setImage:[UIImage imageNamed:@"bg-1"]];
+    [bgView addSubview:bgImage];
+    collectionView.backgroundView = bgView;
+    
     
     collectionView.delegate = self;
     collectionView.dataSource = self;
@@ -256,7 +272,12 @@ static NSString * const reuseIdentifier = @"JHNewsCell";
     JHNewsCell *cell = (JHNewsCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.model = self.dataList[indexPath.row];
-    cell.layer.cornerRadius = 20;
+    cell.backgroundColor = JHRGB(249, 227, 228);
+    cell.block = ^(NSInteger itemH) {
+        self.layout.itemSize = CGSizeMake(350, itemH);
+    };
+    
+    cell.layer.cornerRadius = 16;
     cell.layer.masksToBounds = YES;
     
     return cell;

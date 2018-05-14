@@ -31,7 +31,7 @@
 
 -(JHHomeTopView *)topView{
     if (!_topView) {
-        _topView = [[JHHomeTopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50) titleNames:self.dataList];//200
+        _topView = [[JHHomeTopView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 50) titleNames:self.dataList];//200//50
         
         __weak typeof (self) weakSelf = self;
         _topView.block = ^(NSInteger tag) {
@@ -56,6 +56,7 @@
     self.navigationItem.titleView = self.topView;
     
     self.navigationController.navigationBar.barTintColor = JHRGB(249, 227, 228);//0,205,220
+//    self.navigationController.navigationBar.hidden = YES;
     
 }
 - (void)setupUI{

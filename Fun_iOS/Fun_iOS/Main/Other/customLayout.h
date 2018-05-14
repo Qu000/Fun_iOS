@@ -20,6 +20,8 @@ typedef NS_ENUM(NSInteger, LayoutType) {
     LayoutTypeCoverFlow,
     ///水平
     LayoutTypeHorizontal,
+    ///普通
+    LayoutTypeNormal
 };
 
 @interface customLayout : UICollectionViewLayout

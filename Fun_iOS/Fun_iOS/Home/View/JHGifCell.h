@@ -1,21 +1,22 @@
 //
-//  JHNewsCell.h
+//  JHGifCell.h
 //  Fun_iOS
 //
-//  Created by qujiahong on 2018/5/4.
+//  Created by qujiahong on 2018/5/14.
 //  Copyright © 2018年 瞿嘉洪. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "DuanziItem.h"
+#import "GifItem.h"
 
 typedef void(^itemBlock)(NSInteger itemH);
 
-@interface JHNewsCell : UICollectionViewCell
+@interface JHGifCell : UICollectionViewCell
 
-/** Duanzi*/
-@property (nonatomic, strong) DuanziItem * model;
+/** VideoItem*/
+@property (nonatomic, strong) GifItem * model;
 
 /** block*/
 @property (nonatomic, copy) itemBlock block;
+
 @end

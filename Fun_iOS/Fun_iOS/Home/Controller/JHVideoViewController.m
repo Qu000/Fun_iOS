@@ -9,7 +9,7 @@
 #import "JHVideoViewController.h"
 #import "JHVideoCell.h"
 #import "customLayout.h"
-
+#import "JHMediaViewController.h"
 #import "VideoItem.h"
 
 @interface JHVideoViewController ()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -21,6 +21,8 @@
 /** layout*/
 @property (nonatomic, strong) customLayout * layout;
 
+/** 播放器*/
+@property (nonatomic, strong) JHMediaViewController *mediaPlay;
 
 
 @end
@@ -243,14 +245,15 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
     
     JHVideoCell *cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     // 判断为空进行初始化  --（当拉动页面显示超过主页面内容的时候就会重用之前的cell，而不会再次初始化）
-    if (!cell) {
-        cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
-    }else{
-        //当页面拉动的时候 当cell存在并且最后一个存在 把它进行删除就出来一个独特的cell我们在进行数据配置即可避免
-        while ([cell.contentView.subviews lastObject] != nil) {
-            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
-        }
-    }
+    
+//    if (!cell) {
+//        cell = (JHVideoCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+//    }else{
+//        //当页面拉动的时候 当cell存在并且最后一个存在 把它进行删除就出来一个独特的cell我们在进行数据配置即可避免
+//        while ([cell.contentView.subviews lastObject] != nil) {
+//            [(UIView *)[cell.contentView.subviews lastObject] removeFromSuperview];
+//        }
+//    }
     
     cell.model = self.dataList[indexPath.row];
     cell.layer.cornerRadius = 20;
@@ -296,6 +299,17 @@ static NSString * const reuseIdentifier = @"JHVideoCell";
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"indexPath.row=%ld",(long)indexPath.row);
+    
+    JHMediaViewController * mediaPlayer = [[JHMediaViewController alloc]init];
+//    self.mediaPlay = mediaPlayer;
+//    [self.mediaPlay.MPPlayer pause];
+    
+    VideoItem *videoInfo = self.dataList[indexPath.row];
+    
+    [mediaPlayer playWithVideoInfo:videoInfo];
+    [self presentViewController:mediaPlayer animated:YES completion:^{
+        
+    }];
 }
 #pragma mark -- 控制导航栏的显示与隐藏
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

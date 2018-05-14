@@ -15,6 +15,8 @@
 /** topView按钮下的线条 */
 @property (nonatomic, strong) UIView *lineView;
 
+/** topView按钮下的小船*/
+@property (nonatomic, strong) UIImageView * shipImageView;
 /** 波浪特效*/
 @property (nonatomic, strong) Wave * waveView;
 @end
@@ -30,7 +32,7 @@
 
 -(Wave *)waveView{
     if (!_waveView) {
-        _waveView = [[Wave alloc]initWithFrame:self.bounds];
+        _waveView = [[Wave alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height-7)];
         _waveView.backgroundColor = JHRGB(249, 227, 228);
         [self addSubview:_waveView];
     }
@@ -55,7 +57,7 @@
             
             button.titleLabel.font = [UIFont systemFontOfSize:18];
             
-            button.frame = CGRectMake(i*btnW, 0, btnW, btnH);
+            button.frame = CGRectMake(i*btnW, -10, btnW, btnH);
             
             [button addTarget:self action:@selector(clickTitle:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -65,18 +67,17 @@
             
             [self.buttons addObject:button];
             if (i == 1) {
-                CGFloat h = 2;
-                CGFloat y = 40;
+                CGFloat h = 20;//12:8//w:h
                 
                 [button.titleLabel sizeToFit];
                 
-                self.lineView = [[UIView alloc]init];
-                self.lineView.backgroundColor = [UIColor blackColor];
-                self.lineView.height = h;
-                self.lineView.width = button.titleLabel.width;
-                self.lineView.top = y;
-                self.lineView.centerX = button.centerX;
-                [self.waveView addSubview:self.lineView];
+                self.shipImageView = [[UIImageView alloc]init];
+                self.shipImageView.image = [UIImage imageNamed:@"waveShip"];
+                self.shipImageView.height = h;
+                self.shipImageView.width = 50;
+                self.shipImageView.bottom = CGRectGetMaxY(self.waveView.frame);
+                self.shipImageView.centerX = button.centerX;
+                [self.waveView addSubview:self.shipImageView];
             }
             
         }
@@ -128,12 +129,13 @@
     }
 
     [UIView animateWithDuration:0.2 animations:^{
-        self.lineView.centerX = button.centerX;
+        self.shipImageView.centerX = button.centerX;
     } completion:^(BOOL finished) {
 //        NSLog(@"切换到->%@",button.titleLabel.text);
         
     }];
 }
+
 
 
 

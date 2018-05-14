@@ -7,7 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JHTabBar.h"
 
-@interface JHTabBarController : UITabBarController
+/*
+typedef NS_ENUM(NSInteger, TabBarType) {
+    TabBarTypeDefault,
+    TabBarTypeBPath
+};
+*/
+
+@interface JHTabBarController : UITabBarController<JHTabBarDelegate>
+
+/** tabBar*/
+@property (nonatomic, strong) JHTabBar *jhTabBar;
+/** 创建 */
++ (JHTabBarController *)jhTabbarController;
 
 @end

@@ -83,6 +83,14 @@
     attributes.transform = CGAffineTransformMakeScale(scale, scale);
     
     CGFloat centerY = attributesY;
+    
+    if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
+        attributes.center = CGPointMake(CGRectGetWidth(self.collectionView.frame) / 2, centerY);
+    } else {
+        attributes.center = CGPointMake(centerY, CGRectGetHeight(self.collectionView.frame) / 2);
+    }
+    
+    
     switch (self.layoutType) {
         case LayoutTypeRotary:
             attributes.transform = CGAffineTransformRotate(attributes.transform, - ratio * M_PI_4);
@@ -120,15 +128,15 @@
             attributes.transform3D = transform;
         }
             break;
+        case LayoutTypeNormal: {
+            
+        }
+            break;
         default:
             break;
     }
     
-    if (self.scrollDirection == UICollectionViewScrollDirectionVertical) {
-        attributes.center = CGPointMake(CGRectGetWidth(self.collectionView.frame) / 2, centerY);
-    } else {
-        attributes.center = CGPointMake(centerY, CGRectGetHeight(self.collectionView.frame) / 2);
-    }
+   
     
     return attributes;
 }

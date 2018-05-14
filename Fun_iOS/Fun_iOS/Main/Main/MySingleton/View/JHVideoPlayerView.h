@@ -18,8 +18,9 @@
 @property (nonatomic, strong) AVPlayer *player;
 
 ///视频Model数据源 playInfos
-@property (nonatomic, strong)NSMutableArray *dataList;
+@property (nonatomic, strong) NSMutableArray *dataList;
 
-
+/** url*/
+@property (nonatomic, strong) NSString *url;
 
 @end

@@ -23,23 +23,23 @@
                failed:(DownloadImageFailedBlock)failed
              progress:(DownloadImageProgressBlock)progress {
     
-    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:imageName] options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        
-        progress(receivedSize * 1.0 / expectedSize);
-        
-    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        
-        if (error) {
-            
-            failed(error);
-        
-        } else {
-            
-            self.image = image;
-            success(image);
-        }
-        
-    }];
+//    [self sd_setImageWithURL:[NSURL URLWithString:url] placeholderImage:[UIImage imageNamed:imageName] options:SDWebImageRetryFailed|SDWebImageLowPriority progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+//
+//        progress(receivedSize * 1.0 / expectedSize);
+//
+//    } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//
+//        if (error) {
+//
+//            failed(error);
+//
+//        } else {
+//
+//            self.image = image;
+//            success(image);
+//        }
+//
+//    }];
 
 }
 

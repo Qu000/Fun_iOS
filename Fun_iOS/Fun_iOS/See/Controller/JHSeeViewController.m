@@ -160,8 +160,8 @@
     
 //    cell.imageView.layer.cornerRadius = 25;
 //    cell.imageView.layer.masksToBounds = YES;
-    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    [cell.imageView downloadImage:videoInfo.videoModel.thumbUrl placeholder:@"placeHolderHead"];
+//    cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:videoInfo.videoModel.thumbUrl] placeholderImage:[UIImage imageNamed:@"placeHolderHead"]];
     
     return cell;
 }

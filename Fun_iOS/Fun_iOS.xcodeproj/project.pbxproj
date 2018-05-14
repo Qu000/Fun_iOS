@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511757CC20A8A2E300DF2411 /* GifItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 511757CB20A8A2E300DF2411 /* GifItem.m */; };
+		511757CF20A8A36000DF2411 /* Gif.m in Sources */ = {isa = PBXBuildFile; fileRef = 511757CE20A8A36000DF2411 /* Gif.m */; };
+		511757D320A8A4CF00DF2411 /* JHGifCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 511757D120A8A4CF00DF2411 /* JHGifCell.m */; };
+		511757D420A8A4CF00DF2411 /* JHGifCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 511757D220A8A4CF00DF2411 /* JHGifCell.xib */; };
 		5131D4182099B4FD00819589 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5131D4172099B4FD00819589 /* Assets.xcassets */; };
 		5131D41B2099B4FD00819589 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5131D4192099B4FD00819589 /* LaunchScreen.storyboard */; };
 		5131D4282099B4FD00819589 /* Fun_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5131D4272099B4FD00819589 /* Fun_iOSTests.m */; };
@@ -34,6 +38,9 @@
 		51B51339209C659A0086209F /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 51B51336209C659A0086209F /* Video.m */; };
 		51CB53F420A812BF00F15D7C /* Wave.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB53F320A812BF00F15D7C /* Wave.m */; };
 		51CB53F720A816B900F15D7C /* JHPicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB53F620A816B900F15D7C /* JHPicViewController.m */; };
+		51CB53FD20A8256800F15D7C /* JHTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB53F920A8256800F15D7C /* JHTabBarItem.m */; };
+		51CB53FE20A8256800F15D7C /* JHTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB53FA20A8256800F15D7C /* JHTabBar.m */; };
+		51CB540720A863D600F15D7C /* JHMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CB540620A863D600F15D7C /* JHMediaViewController.m */; };
 		51CDF37320A53E7900E8847E /* JHVideoTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37220A53E7900E8847E /* JHVideoTool.m */; };
 		51CDF37620A5404600E8847E /* JHVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 51CDF37520A5404600E8847E /* JHVideoPlayerView.m */; };
 		51CDF37820A5408300E8847E /* JHVideoPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51CDF37720A5408300E8847E /* JHVideoPlayerView.xib */; };
@@ -57,6 +64,13 @@
 /* Begin PBXFileReference section */
 		105F1B2A76110E79485D230B /* Pods-Fun_iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fun_iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Fun_iOSTests/Pods-Fun_iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Fun_iOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		511757CA20A8A2E300DF2411 /* GifItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GifItem.h; sourceTree = "<group>"; };
+		511757CB20A8A2E300DF2411 /* GifItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GifItem.m; sourceTree = "<group>"; };
+		511757CD20A8A36000DF2411 /* Gif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Gif.h; sourceTree = "<group>"; };
+		511757CE20A8A36000DF2411 /* Gif.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Gif.m; sourceTree = "<group>"; };
+		511757D020A8A4CF00DF2411 /* JHGifCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHGifCell.h; sourceTree = "<group>"; };
+		511757D120A8A4CF00DF2411 /* JHGifCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHGifCell.m; sourceTree = "<group>"; };
+		511757D220A8A4CF00DF2411 /* JHGifCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JHGifCell.xib; sourceTree = "<group>"; };
 		5131D40B2099B4FB00819589 /* Fun_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fun_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5131D4172099B4FD00819589 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5131D41A2099B4FD00819589 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -111,6 +125,12 @@
 		51CB53F320A812BF00F15D7C /* Wave.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wave.m; sourceTree = "<group>"; };
 		51CB53F520A816B900F15D7C /* JHPicViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHPicViewController.h; sourceTree = "<group>"; };
 		51CB53F620A816B900F15D7C /* JHPicViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHPicViewController.m; sourceTree = "<group>"; };
+		51CB53F920A8256800F15D7C /* JHTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTabBarItem.m; sourceTree = "<group>"; };
+		51CB53FA20A8256800F15D7C /* JHTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTabBar.m; sourceTree = "<group>"; };
+		51CB53FB20A8256800F15D7C /* JHTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTabBarItem.h; sourceTree = "<group>"; };
+		51CB53FC20A8256800F15D7C /* JHTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTabBar.h; sourceTree = "<group>"; };
+		51CB540520A863D600F15D7C /* JHMediaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHMediaViewController.h; sourceTree = "<group>"; };
+		51CB540620A863D600F15D7C /* JHMediaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHMediaViewController.m; sourceTree = "<group>"; };
 		51CDF37120A53E7900E8847E /* JHVideoTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoTool.h; sourceTree = "<group>"; };
 		51CDF37220A53E7900E8847E /* JHVideoTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHVideoTool.m; sourceTree = "<group>"; };
 		51CDF37420A5404600E8847E /* JHVideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHVideoPlayerView.h; sourceTree = "<group>"; };
@@ -155,6 +175,17 @@
 				50B64EC4C7C41B3F0876EF2A /* libPods-Fun_iOSTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		511757C920A8A28F00DF2411 /* GifModel */ = {
+			isa = PBXGroup;
+			children = (
+				511757CA20A8A2E300DF2411 /* GifItem.h */,
+				511757CB20A8A2E300DF2411 /* GifItem.m */,
+				511757CD20A8A36000DF2411 /* Gif.h */,
+				511757CE20A8A36000DF2411 /* Gif.m */,
+			);
+			path = GifModel;
 			sourceTree = "<group>";
 		};
 		5131D4022099B4FB00819589 = {
@@ -230,6 +261,7 @@
 			children = (
 				518D028A209FFBD1006D30E7 /* DuanziModel */,
 				518D0289209FFBC1006D30E7 /* VideoModel */,
+				511757C920A8A28F00DF2411 /* GifModel */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -245,6 +277,11 @@
 				51B51325209C36060086209F /* JHVideoCell.h */,
 				51B51326209C36060086209F /* JHVideoCell.m */,
 				51B51327209C36060086209F /* JHVideoCell.xib */,
+				511757D020A8A4CF00DF2411 /* JHGifCell.h */,
+				511757D120A8A4CF00DF2411 /* JHGifCell.m */,
+				511757D220A8A4CF00DF2411 /* JHGifCell.xib */,
+				51CB540520A863D600F15D7C /* JHMediaViewController.h */,
+				51CB540620A863D600F15D7C /* JHMediaViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -352,6 +389,7 @@
 		5131D467209AB32400819589 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				51CB53F820A8256800F15D7C /* JHTabBar */,
 				51CB53F220A812BF00F15D7C /* Wave.h */,
 				51CB53F320A812BF00F15D7C /* Wave.m */,
 				51B51317209C30170086209F /* customLayout.h */,
@@ -396,6 +434,17 @@
 				518D0286209FFB7A006D30E7 /* NiceComment.m */,
 			);
 			path = DuanziModel;
+			sourceTree = "<group>";
+		};
+		51CB53F820A8256800F15D7C /* JHTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				51CB53FC20A8256800F15D7C /* JHTabBar.h */,
+				51CB53FA20A8256800F15D7C /* JHTabBar.m */,
+				51CB53FB20A8256800F15D7C /* JHTabBarItem.h */,
+				51CB53F920A8256800F15D7C /* JHTabBarItem.m */,
+			);
+			path = JHTabBar;
 			sourceTree = "<group>";
 		};
 		51CDF36E20A53E4000E8847E /* MySingleton */ = {
@@ -531,6 +580,7 @@
 				51B51324209C358E0086209F /* JHNewsCell.xib in Resources */,
 				5131D4182099B4FD00819589 /* Assets.xcassets in Resources */,
 				51B51329209C36060086209F /* JHVideoCell.xib in Resources */,
+				511757D420A8A4CF00DF2411 /* JHGifCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,17 +656,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				51CB53F420A812BF00F15D7C /* Wave.m in Sources */,
+				51CB540720A863D600F15D7C /* JHMediaViewController.m in Sources */,
 				518D0288209FFB7A006D30E7 /* NiceComment.m in Sources */,
 				51B51338209C659A0086209F /* VideoItem.m in Sources */,
 				5131D4522099C00100819589 /* JHSeeViewController.m in Sources */,
 				51CDF38120A54D4000E8847E /* JHLoadingView.m in Sources */,
 				51B51339209C659A0086209F /* Video.m in Sources */,
+				511757CF20A8A36000DF2411 /* Gif.m in Sources */,
 				51CDF37620A5404600E8847E /* JHVideoPlayerView.m in Sources */,
 				51B5132C209C3F860086209F /* JHNewsViewController.m in Sources */,
 				51B51328209C36060086209F /* JHVideoCell.m in Sources */,
 				5131D46F209AB32400819589 /* JHNavigationController.m in Sources */,
 				51CDF37320A53E7900E8847E /* JHVideoTool.m in Sources */,
 				51B51319209C30180086209F /* customLayout.m in Sources */,
+				511757D320A8A4CF00DF2411 /* JHGifCell.m in Sources */,
+				511757CC20A8A2E300DF2411 /* GifItem.m in Sources */,
 				5131D44D2099BED700819589 /* JHHomeViewController.m in Sources */,
 				5131D472209AB32400819589 /* AppDelegate.m in Sources */,
 				5131D4552099C00D00819589 /* JHProfileViewController.m in Sources */,
@@ -628,9 +682,11 @@
 				5131D46E209AB32400819589 /* JHTabBarController.m in Sources */,
 				51CB53F720A816B900F15D7C /* JHPicViewController.m in Sources */,
 				51B51323209C358E0086209F /* JHNewsCell.m in Sources */,
+				51CB53FE20A8256800F15D7C /* JHTabBar.m in Sources */,
 				51CDF38020A54D4000E8847E /* JHBrightnessAndVolumeView.m in Sources */,
 				5131D475209AB3A300819589 /* UIView+JHExtension.m in Sources */,
 				518D028D20A04E16006D30E7 /* UIImageView+SDWebImage.m in Sources */,
+				51CB53FD20A8256800F15D7C /* JHTabBarItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,7 +836,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T73WW3AT23;
+				DEVELOPMENT_TEAM = L9687TNJ7S;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Fun_iOS/Main/PrefixHeader.pch";
 				INFOPLIST_FILE = Fun_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -799,7 +855,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = T73WW3AT23;
+				DEVELOPMENT_TEAM = L9687TNJ7S;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Fun_iOS/Main/PrefixHeader.pch";
 				INFOPLIST_FILE = Fun_iOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

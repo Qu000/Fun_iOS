@@ -55,11 +55,11 @@
 
 - (void)initData{
     //初始化
-    self.waveSpeed = 0.5;
+    self.waveSpeed = 0.75;//0.5
     self.waveCurvature = 1.0;//1.5
-    self.waveHeight = 4;
-    self.realWaveColor = [UIColor whiteColor];
-    self.maskWaveColor = [[UIColor whiteColor] colorWithAlphaComponent:0.4];
+    self.waveHeight = 4;//4
+    self.realWaveColor = JHRGB(0, 158, 156);//[UIColor clearColor];
+    self.maskWaveColor = [JHRGB(0, 158, 156) colorWithAlphaComponent:0.4];
     
     [self.layer addSublayer:self.realWaveLayer];
     [self.layer addSublayer:self.maskWaveLayer];

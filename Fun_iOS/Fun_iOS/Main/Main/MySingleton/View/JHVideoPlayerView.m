@@ -28,7 +28,7 @@
 @end
 @implementation JHPreviewView
 
-// 单例？？这他二爷的就是单例！！
+// 单例
 static id _instance;
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
@@ -351,7 +351,7 @@ static id _instance;
     // 设置播放器标题
     self.titleLabel.text = VideoInfo.content;
     self.placeHolderView.hidden = NO;
-    [self.placeHolderView downloadImage:VideoInfo.videoModel.thumbUrl placeholder:@"placeHolderHead"];
+    [self.placeHolderView sd_setImageWithURL:[NSURL URLWithString:VideoInfo.videoModel.thumbUrl] placeholderImage:[UIImage imageNamed:@"placeHolderHead"]];
     [self.waitingView startAnimating];
     
     // 建立串行调度组 确保截图任务的先后完成
